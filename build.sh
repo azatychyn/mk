@@ -14,7 +14,7 @@ rm -rf "_build"
 # Compile app and assets
 mix deps.get --only prod
 mix compile
-cd assets && npm install && cd .. && mix assets.deploy
+# mix assets.deploy
 
 # create release
 # we don't need to create a tarball because the app will be
