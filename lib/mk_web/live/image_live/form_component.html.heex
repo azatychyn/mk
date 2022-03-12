@@ -1,0 +1,24 @@
+<div>
+  <h2><%= @title %></h2>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="image-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+  
+    <%= label f, :image_path %>
+    <%= text_input f, :image_path %>
+    <%= error_tag f, :image_path %>
+  
+    <%= label f, :product_id %>
+    <%= text_input f, :product_id %>
+    <%= error_tag f, :product_id %>
+  
+    <div>
+      <%= submit "Save", phx_disable_with: "Saving..." %>
+    </div>
+  </.form>
+</div>
