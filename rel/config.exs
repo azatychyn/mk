@@ -38,7 +38,6 @@ environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"zN@I3A&zl4@YvJ2=Yb<&7{AbiCqvz`cdT*8{){zHt.N>lS7et_&Pk{Z:uCS>)Dw("
-  set vm_args: "rel/vm.args"
   set config_providers: [
     {Distillery.Releases.Config.Providers.Elixir, ["${RELEASE_ROOT_DIR}/etc/config.exs"]}
   ]
