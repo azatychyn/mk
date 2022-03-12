@@ -41,6 +41,7 @@ defmodule MkWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: MkWeb.Telemetry
     end
+
     scope "/", MkWeb do
       pipe_through :browser
 

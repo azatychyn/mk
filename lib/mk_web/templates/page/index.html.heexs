@@ -64,7 +64,7 @@ end %>
       <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4">Склады</p>
     </li>
     <li class="row-span-2 bg-gray-400 relative overflow-hidden cursor-pointer">
-      <img src="http://ru.promfin-holding.com/assets/images/greenhouses.gif" class="bg-contain h-full w-full hover:scale-125 transform-gpu transition"/>
+      <img src="https://atomstroymodul.ru/uploadedFiles/catalogimages/big/sklad-iz-frontalnyh-stellazhey-rsholod-2.jpg" class="bg-contain h-full w-full hover:scale-125 transform-gpu transition"/>
       <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4">Теплицы</p>
     </li>
     <li class="bg-gray-400 relative h-96 overflow-hidden cursor-pointer">
