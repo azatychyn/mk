@@ -12,36 +12,9 @@
   />
 </.slider_modal>
 <% end %>
-<div class="relative flex flex-col-reverse py-4 sm:py-16 lg:flex-col lg:pb-0 mt-4 sm:mt-16 antialiased">
-  <div class="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
-    <svg class="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block" viewBox="0 0 100 100" fill="currentColor" preserveAspectRatio="none slice">
-      <path d="M50 0H100L50 100H0L50 0Z"></path>
-    </svg>
-    <img
-      class="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-      src="https://promstalzdanie.ru/images/news/zdanie-iz-ram-peremennogo-secheniya.jpg"
-      src="https://img.freepik.com/free-photo/3d-rendering-factory-ceiling-with-metal-beam_493806-7724.jpg"
-      src="https://soft.bimacad.ru/upload/medialibrary/8ca/8caa6bcdb10963763c51f29298336f1f.png"
-      src="https://ssn-ufa.ru/upload/iblock/e81/e816d0e2886ed30067c922e885e6cbc8.png"
-      
-      alt=""
-    />
-  </div>
-  <div class="relative w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
-    <div class="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-      <p class="sm:mb-4 text-lg sm:text-2xl md:text-3xl lg:text-xl font-semibold tracking-wider text-teal-900 uppercase bg-teal-accent-400">
-        совершенно новый
-      </p>
-      <h2 class="mb-5 text-gray-900 uppercase text-xl xs:text-xl md:text-5xl lg:text-6xl font-bold">
-        Подход к возведению <br class="hidden md:block" />металлоконструкций,
-        <span class="inline-block text-deep-purple-accent-400">которые можно <br class="" /> только представить</span>
-      </h2>
-      <p class="pr-5 mb-5 text-gray-700 text-base md:text-xl">
-        Строительство металлоконструкций любой сложноси. Исплльзовние профессиональной техники и методики строительства.
-      </p>
-    </div>
-  </div>
-</div>
+
+<MkWeb.Components.Main.introduction />
+
 <div class="mt-24">
   <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase">мы строим</h1>
   <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold">в 2 вариантах</h2>
@@ -59,10 +32,10 @@
     <p class="px-2 text-2xl sm:text-4xl">Холодный</p>
     </li>
   </ul>
-  <MkWeb.Components.CategoriesComponents.categories categories={@categories}/>
+  <MkWeb.Components.Main.categories categories={@categories}/>
 </div>
 
-<MkWeb.Components.CategoriesComponents.advantages />
+<MkWeb.Components.Main.advantages />
 <!-- steps of work -->
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">

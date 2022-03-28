@@ -1,4 +1,4 @@
-defmodule MkWeb.Components.CategoriesComponents do
+defmodule MkWeb.Components.Main do
   use Phoenix.Component
   use Phoenix.HTML
 
@@ -125,6 +125,59 @@ defmodule MkWeb.Components.CategoriesComponents do
     """
   end
 
+  def introduction(assigns) do
+    ~H"""
+    <!-- desktop -->
+    <div class="relative hidden lg:flex py-16 flex-col mt-16 antialiased">
+      <div class="inset-y-0 top-0 right-0 z-0 w-full max-w-xl w-7/12 lg:max-w-full lg:absolute xl:px-0">
+        <svg class="absolute left-0 h-full text-white transform -translate-x-1/2" viewBox="0 0 100 100" fill="currentColor" preserveAspectRatio="none slice">
+          <path d="M50 0H100L50 100H0L50 0Z"></path>
+        </svg>
+        <img
+          class="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
+          src="https://promstalzdanie.ru/images/news/zdanie-iz-ram-peremennogo-secheniya.jpg"
+          src="https://img.freepik.com/free-photo/3d-rendering-factory-ceiling-with-metal-beam_493806-7724.jpg"
+          alt=""
+        />
+      </div>
+      <div class="relative px-2 my-48">
+        <p class="text-7xl font-bold text-deep-purple-accent-400">Совершенно новый</p>
+        <div class="max-w-xl pr-5">
+          <p class="mb-5 text-gray-900 uppercase text-6xl">
+            Подход к возведению <br class="hidden md:block" />конструкций,
+            <span class="inline-block text-deep-purple-accent-400 font-medium text-4xl normal-case">которые можно <br class="" /> только представить</span>
+          </p>
+          <p class="text-gray-700 text-xl">
+            Строительство металлоконструкций любой сложноси. Исплльзовние профессиональной техники и методики строительства.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- desktop -->
+    <!-- mobile -->
+    <div class="relative lg:hidden antialiased h-96 sm:h-[520px] sm:py-36">
+      <div class="absolute inset-0 z-0">
+        <img
+          class="object-cover w-full h-full"
+          src="https://promstalzdanie.ru/images/news/zdanie-iz-ram-peremennogo-secheniya.jpg"
+          alt="main_image"
+        />
+      </div>
+      <div class="flex flex-col justify-center relative text-center bg-slate-800 bg-opacity-70 backdrop-invert backdrop-opacity-20 max-w-2xl mx-auto rounded p-4 h-full sm:h-auto">
+        <p class="text-gray-100 text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold uppercase mb-2">совершенно новый</p>
+        <p class="text-gray-200 mb-5 uppercase text-lg xs:text-xl sm:text-2xl md:text-3xl font-semibold">
+          Подход к возведению конструкций,
+          <span class="inline-block text-deep-purple-accent-400">которые можно <br class="xs:hidden" /> только представить</span>
+        </p>
+        <p class="text-gray-300 md:text-xl">
+          Строительство металлоконструкций любой сложноси. Исплльзовние профессиональной техники и методики строительства.
+        </p>
+      </div>
+
+    </div>
+    <!-- mobile -->
+    """
+  end
   defp extract_image(categories, label)  do
     categories
     |> Map.get(label)
