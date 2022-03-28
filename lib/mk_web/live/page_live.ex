@@ -5,12 +5,12 @@ defmodule MkWeb.PageLive do
   alias Phoenix.LiveView.JS
 
   @steps [
-    %{img: "measure.svg", label: "Замер", content: "Бесплатный выезд нашего специалиста на Ваш объект"},
-    %{img: "smeta.svg", label: "Смета", content: "Бесплатное составление сметы"},
-    %{img: "contract.svg", label: "Контракт", content: "Заключим в любом удобном для Вас месте"},
-    %{img: "renovation.svg", label: "Ремонт", content: "С Вас только приемка оговоренных этапов работ"},
-    %{img: "renovation.svg", label: "Клининг", content: "Мы не привыкли оставлять после себя мусор"},
-    %{img: "renovation.svg", label: "Сдача", content: "Приемка всего объекта"},
+    %{label: "Замер", content: "Бесплатный выезд нашего специалиста на Ваш объект"},
+    %{label: "Смета", content: "Бесплатное составление сметы"},
+    %{label: "Контракт", content: "Заключим в любом удобном для Вас месте"},
+    %{label: "Строительство", content: "С Вас только приемка оговоренных этапов работ"},
+    %{label: "Подготовка", content: "Мы не привыкли оставлять после себя мусор"},
+    %{label: "Сдача", content: "Приемка всего объекта"},
   ]
 
   @works [

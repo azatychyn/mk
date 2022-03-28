@@ -1,4 +1,3 @@
-
 <%= if @live_action == :slider do %>
 <.slider_modal return_to="/">
   <.live_component 
@@ -15,55 +14,45 @@
 
 <MkWeb.Components.Main.introduction />
 
-<div class="mt-24">
-  <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase">мы строим</h1>
-  <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold">в 2 вариантах</h2>
-  <ul class="grid grid-rows-2 xs:grid-rows-1 xs:grid-cols-2 gap-2 xs:gap-0 max-w-xl w-full my-16">
-    <li class="flex items-center">
+<div class="mt-12 sm:mt-16 md:mt-20 xl:mt-24 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase px-2 text-center">мы строим</h1>
+  <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center">в 2 вариантах</h2>
+  <ul class="grid grid-rows-2 xs:grid-rows-1 xs:grid-cols-2 gap-2 xs:gap-0 max-w-xl mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center mx-auto">
+    <li class="flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 xs:h-10 sm:h-12 w-8 xs:w-10 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+      <p class="px-2 text-2xl sm:text-4xl">Холодный</p>
+    </li>  
+    <li class="flex items-center justify-center">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 xs:h-10 sm:h-12 w-8 xs:w-10 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>    
       <p class="px-2 text-2xl sm:text-4xl">Теплый</p>
-    </li>
-    <li class="flex items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 xs:h-10 sm:h-12 w-8 xs:w-10 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-      </svg>
-    <p class="px-2 text-2xl sm:text-4xl">Холодный</p>
     </li>
   </ul>
   <MkWeb.Components.Main.categories categories={@categories}/>
 </div>
 
 <MkWeb.Components.Main.advantages />
-<!-- steps of work -->
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="text-center mb-20">
-      <h1 class="sm:text-5xl text-2xl font-medium title-font text-gray-900 mb-4">Этапы работ</h1>
-      <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Мы легко и надежно проведем вас от первой встречи до сдачи всех работ</p>
-      <div class="flex mt-6 justify-center">
-        <div class="w-16 h-1 rounded-full bg-warm-gray-500 inline-flex"></div>
-      </div>
-    </div>
-    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-      <%= for {step, index} <- Enum.with_index(@steps, 1) do %>
-        <div class="p-4 md:w-1/3 flex flex-col text-center items-center mb-12">
-          <div class="w-24 h-24 inline-flex items-center justify-center mb-5 flex-shrink-0">
-            <img id="_Image833" class="block w-full h-full" src={Routes.static_path(@socket, "/images/steps/#{step.img}")} />
-          </div>
-          <div class="flex-grow">
-            <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= "#{index}. #{step.label}" %></h2>
-            <p class="leading-relaxed text-base"><%= step.content %></p>
-          </div>
-        </div>
-        <% end %>
-    </div>
-  </div>
+
+<!-- start steps of work -->
+<section class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold">Этапы работ</h1>
+  <p class="text-xl lg:text-2xl max-w-5xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">Мы легко и надежно проведем вас от первой встречи до сдачи всех работ</p>
+  <ul class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-12">
+    <%= for {step, index} <- Enum.with_index(@steps, 1) do %>
+      <li class="p-4">
+        <h2 class="text-gray-900 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase mb-3"><%= "#{index}. #{step.label}" %></h2>
+        <p class="leading-relaxed text-base sm:text-lg lg:text-xl"><%= step.content %></p>
+      </li>
+    <% end %>
+  </ul>
 </section>
-<!-- our works -->
-<section class="px-2 xs:px-4">
-  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-6 xs:mb-8 sm:mb-12 md:mb-16 lg:mb-20 font-bold title-font my-16 text-gray-900">Наши объекты</h1>
+<!-- end steps of work -->
+<!-- start our works -->
+<section class="px-2 xs:px-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold title-font text-gray-900">Наши объекты</h1>
   <p class="text-xl lg:text-2xl max-w-5xl mx-auto text-center">Сотни наших объектов в ряде регионов России и даже ближнего зарубежья – лучшее доказательство нашего профессионализма. Мы по праву гордимся нашими рабочими бригадами и регулярно совершенствуем профессиональные навыки наших специалистов.</p>
   <ul class="mt-16 mb-24 grid grid-rows-1 gap-12 md:gap-4 md:grid-cols-3 place-items-center md:place-items-stretch">
     <li class="">
@@ -82,9 +71,9 @@
       <p class="text-xl pt-4 max-w-xs text-center">Территория собственного производства</p>
     </li>
   </ul>
-  <ul class="w-full grid grid-cols-2 gap-2 xs:gap-4 sm:gap-8 auto-rows-min">
+  <ul class="w-full grid xs:grid-cols-2 gap-2 xs:gap-4 sm:gap-8 auto-rows-min">
     <%= for {work, index} <- Enum.with_index(works(), 1) do %>
-      <li class="group relative w-full h-full">
+      <li class="group relative w-full h-40 xs:h-56 sm:h-96">
         <a class="w-full h-full flex items-center text-xl xs:text-2xl sm:text-3xl md:text-4xl">
           <div class="absolute inset-0 w-full h-full bg-black bg-opacity-30"></div>
           <p class="absolute w-full h-full inset-0 flex items-center justify-center text-white text-center"> <%= work.name %></p>
@@ -108,3 +97,4 @@
     <% end %>
   </ul>
 </section>
+<!-- end our works -->

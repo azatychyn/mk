@@ -7,10 +7,10 @@ module.exports = {
   content: ["./js/**/*.js", "../lib/*_web/**/*.*ex"],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    // fontFamily: {
-    //   display: ['Poppins', 'system-ui', 'sans-serif'],
-    //   body: ['Poppins', 'system-ui', 'sans-serif'],
-    // },
+    screens: {      
+      'xs': '400px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         'sans': ['Montserrat', ...defaultTheme.fontFamily.sans],
@@ -83,9 +83,6 @@ module.exports = {
         'select-grey': '#ECF2F9', 
         'dark-text': '#e7e8eb',      
         'dark-black-russian':'#080c26'
-      },
-      screens: {      
-        'xs': '400px',
       },
       zIndex: {
         '-10': '-10',

@@ -6,53 +6,53 @@ defmodule MkWeb.Components.Main do
 
   def categories(assigns) do
     ~H"""
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-2 gap-4">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-2 gap-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
       <li class="md:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["warehouse"].id)}>
           <img src={extract_image(@categories, "warehouse")} class="object-cover h-full w-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4" ><%= extract_name(@categories, "warehouse") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4" ><%= extract_name(@categories, "warehouse") %></p>
         </a>
       </li>
       <li class="md:row-span-2 bg-gray-400 h-52 sm:h-auto relative overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["greenhouse"].id)}>
           <img src={extract_image(@categories, "greenhouse")} class="object-cover h-full w-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "greenhouse") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "greenhouse") %></p>
         </a>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["agriculture"].id)}>
           <img src={extract_image(@categories, "agriculture")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "agriculture") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "agriculture") %></p>
         </a>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["logistic"].id)}>
           <img src={extract_image(@categories, "logistic")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "logistic") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "logistic") %></p>
         </a>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["auto_service"].id)}>
           <img src={extract_image(@categories, "auto_service")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "auto_service") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "auto_service") %></p>
         </a>
       </li>
       <li class="lg:col-span-2 xl:col-span-1 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["sport"].id)}>
           <img src={extract_image(@categories, "sport")} class="object-cover w-full w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "sport") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "sport") %></p>
         </a>
       </li>
       <li class="lg:col-span-3 xl:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["awnings"].id)}>
           <img src={extract_image(@categories, "awnings")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "awnings") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "awnings") %></p>
         </a>
       </li>
       <li class="lg:col-span-3 xl:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
         <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["aviation"].id)}>
           <img src={extract_image(@categories, "aviation")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
-          <p class="absolute bottom-0 break-all bg-gray-800 w-full bg-opacity-60 text-gray-200 text-3xl p-4"><%= extract_name(@categories, "aviation") %></p>
+          <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "aviation") %></p>
         </a>
       </li>
     </ul>
@@ -61,14 +61,14 @@ defmodule MkWeb.Components.Main do
 
   def advantages(assigns) do
     ~H"""
-    <section class="text-gray-600 body-font px-2 xs:px-0 py-24 mx-auto">
-      <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-6 xs:mb-8 sm:mb-12 md:mb-16 lg:mb-20 font-bold title-font text-gray-900">
+    <section class="text-gray-600 body-font px-2 xs:px-0 mx-auto mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+      <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold title-font text-gray-900">
         Преимущество работать с нами
       </h1>
       <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 ">
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
               <%= MkWeb.IconView.render(MkWeb.IconView, "check_datalist.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Фиксированные цены</p>
@@ -77,7 +77,7 @@ defmodule MkWeb.Components.Main do
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
               <%= MkWeb.IconView.render(MkWeb.IconView, "pay_cash.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Поэтапная оплата</p>
@@ -86,7 +86,7 @@ defmodule MkWeb.Components.Main do
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
               <%= MkWeb.IconView.render(MkWeb.IconView, "calendar.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Соблюдение сроков</p>
@@ -95,7 +95,7 @@ defmodule MkWeb.Components.Main do
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
             <%= MkWeb.IconView.render(MkWeb.IconView, "people_group.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Опытный коллектив</p>
@@ -104,7 +104,7 @@ defmodule MkWeb.Components.Main do
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
               <%= MkWeb.IconView.render(MkWeb.IconView, "wheel_barrow.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Закупка материала</p>
@@ -113,7 +113,7 @@ defmodule MkWeb.Components.Main do
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
               <%= MkWeb.IconView.render(MkWeb.IconView, "quality.html") %>
             </div>
             <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Гарантия 2 года</p>
