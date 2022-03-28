@@ -1,4 +1,5 @@
-<main class="max-w-[1536px] mx-auto">
+<main class="max-w-[1536px] mx-auto subpixel-antialiased">
+  <MkWeb.Components.Header.header assigns: @assigns />
   <p class="alert alert-info" role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="info"><%= live_flash(@flash, :info) %></p>
@@ -7,5 +8,5 @@
     phx-click="lv:clear-flash"
     phx-value-key="error"><%= live_flash(@flash, :error) %></p>
 
-  <%= @inner_content %>
+  <%= @inner_content %>  
 </main>

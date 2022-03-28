@@ -84,7 +84,6 @@ defmodule MkWeb.LiveHelpers do
     """
   end
 
-
   defp hide_modal(js \\ %JS{}) do
     js
     |> JS.hide(to: "#modal", transition: "fade-out")

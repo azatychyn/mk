@@ -1,8 +1,8 @@
 defmodule MkWeb.PageLive do
   use MkWeb, :live_view
 
-  alias Mk.Pages
-  alias Mk.Pages.Page
+  alias Mk.Categories
+  alias Phoenix.LiveView.JS
 
   @steps [
     %{img: "measure.svg", label: "Замер", content: "Бесплатный выезд нашего специалиста на Ваш объект"},
@@ -176,8 +176,6 @@ defmodule MkWeb.PageLive do
 
     socket =
       socket
-      # |> assign(:step, 1)
-      # |> assign(:calculator_struct, @calculator_struct)
       # |> assign(:answers, %{})
       # |> assign(:changeset, changeset)
       |> assign(:steps, @steps)
@@ -185,6 +183,8 @@ defmodule MkWeb.PageLive do
       |> assign(:images, [])
       |> assign(:slide_name, "")
       |> assign(:slide_description, "")
+      |> assign(:categories, Categories.map_categories())
+
       {:ok, socket}
   end
 
@@ -213,4 +213,11 @@ defmodule MkWeb.PageLive do
     do: socket
 
   def works(), do: @works
+
+  defp show_modal(id, js \\ %JS{}) do
+    js
+    |> JS.show(transition: "fade-out", to: "#" <> id)
+    |> JS.show(transition: "fade-out-scale", to: "#modal-content")
+    |> JS.add_class("overflow-hidden", to: "#body")
+  end
 end

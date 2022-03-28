@@ -7,6 +7,7 @@ defmodule Mk.Repo.Migrations.CreateImages do
       add :image_path, :string
 
       add :product_id, references(:products, type: :binary_id, on_delete: :delete_all)
+      add :category_id, references(:categories, type: :binary_id, on_delete: :delete_all)
 
       timestamps()
     end

@@ -1,0 +1,43 @@
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.category_show_path(@socket, :show, @category)}>
+    <.live_component
+      module={MkWeb.CategoryLive.FormComponent}
+      id={@category.id}
+      title={@page_title}
+      action={@live_action}
+      category={@category}
+      return_to={Routes.category_show_path(@socket, :show, @category)}
+    />
+  </.modal>
+<% end %>
+<ul class="grid grid-cols-5 mt-12">
+  <li class="col-span-3">
+    <ul class="max-w-2xl">
+      <li class="first-line:text-7xl text-5xl mb-8 font-bold uppercase">
+        <%= @category.name %>
+      </li>
+      <li class="text-xl mb-20">
+        <ul>
+        <%= for description_item <- @category.description do %>
+          <li class="py-4"><%= description_item %></li>
+        <% end %>
+        </ul>
+      </li>
+    </ul>
+    <p class="text-7xl font-semibold mb-8">ключевые особенности</p>
+    <div class="max-w-2xl text-xl"> 
+      <ul>
+      <%= for peculiarity_item <- @category.peculiarity do %>
+        <li class="py-4"><%= peculiarity_item %></li>
+      <% end %>        
+      </ul>
+    </div> 
+  </li>
+  <li class="col-span-2">
+    <img src={Routes.static_path(@socket, "/" <> @category.image.image_path)}>
+  </li>
+</ul>
+
+
+<span><%= live_patch "Edit", to: Routes.category_show_path(@socket, :edit, @category), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.category_index_path(@socket, :index) %></span>

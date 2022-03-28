@@ -20,6 +20,13 @@ defmodule MkWeb.Router do
     # get "/", PageController, :index
     live("/", PageLive, :index)
     live("/slider", PageLive, :slider)
+
+    live "/categories", CategoryLive.Index, :index
+    live "/categories/new", CategoryLive.Index, :new
+    live "/categories/:id/edit", CategoryLive.Index, :edit
+
+    live "/categories/:id", CategoryLive.Show, :show
+    live "/categories/:id/show/edit", CategoryLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
@@ -58,6 +65,13 @@ defmodule MkWeb.Router do
 
       live "/images/:id", ImageLive.Show, :show
       live "/images/:id/show/edit", ImageLive.Show, :edit
+
+      live "/categories", CategoryLive.Index, :index
+      live "/categories/new", CategoryLive.Index, :new
+      live "/categories/:id/edit", CategoryLive.Index, :edit
+
+      live "/categories/:id", CategoryLive.Show, :show
+      live "/categories/:id/show/edit", CategoryLive.Show, :edit
     end
 
   end

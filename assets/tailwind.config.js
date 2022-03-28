@@ -1,7 +1,9 @@
 const colors = require('tailwindcss/colors');
 const plugin = require("tailwindcss/plugin");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {  
+  // content: ["./js/**/*.js", "../lib/*_web/**/*.*ex", "../priv/static/fonts/*"],
   content: ["./js/**/*.js", "../lib/*_web/**/*.*ex"],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -10,6 +12,9 @@ module.exports = {
     //   body: ['Poppins', 'system-ui', 'sans-serif'],
     // },
     extend: {
+      fontFamily: {
+        'sans': ['Montserrat', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
