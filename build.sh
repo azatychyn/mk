@@ -14,6 +14,8 @@ rm -rf "_build"
 # Compile app and assets
 mix deps.get --only prod
 mix compile
+mix ecto.migrate
+mix run priv/repo/seeds.exs
 # mix assets.deploy
 
 # create release
