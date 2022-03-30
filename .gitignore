@@ -32,4 +32,5 @@ mk-*.tar
 npm-debug.log
 /assets/node_modules/
 .elixir_ls
-
+/*.DS_Store
+*/*.DS_Store
