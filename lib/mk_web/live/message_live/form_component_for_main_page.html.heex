@@ -1,0 +1,65 @@
+<div>
+  <%= if @have_sent do %>
+    <div class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+      <h2 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @title %></h2>
+      <button 
+        phx-click="new" 
+        phx-target={@myself}
+        class="block text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100 max-w-2xl mx-auto"
+        >
+        Отправить новое сообщение
+      </button>
+    </div>
+  <% else %>  
+    <div class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+      <h2 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @title %></h2>
+
+      <.form
+        let={f}
+        for={@changeset}
+        id="message-form"
+        phx-target={@myself}
+        phx-change="validate"
+        phx-submit="save"
+        class="grid gap-8 max-w-2xl mx-auto px-2">
+        <div>
+          <%= label f, :name, "Имя", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+          <%= text_input f, :name, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none w-full" %>
+          <%= error_tag f, :name, "text-xl my-2" %>
+        </div>
+        <div>
+          <%= label f, :number, "Номер телефона", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+          <%= text_input f, :number, 
+            class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none w-full", 
+            "phx-hook": "PhoneNumber", 
+            "phx-update": "ignore" %>
+          <%= error_tag f, :number, "text-xl my-2" %>
+        </div>
+        <div>
+          <%= label f, :email, "Почта", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+          <%= email_input f, :email, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none w-full" %>
+          <%= error_tag f, :email, "text-xl my-2" %>
+        </div>
+        <div>
+          <%= label f, :message, "Сообщение", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+          <%= textarea f, :message, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none bg-slate-200 rounded w-full", rows: 5 %>
+          <%= error_tag f, :message, "text-xl my-2" %>
+        </div>
+        <div>
+          <div class="flex mb-4 items-center">
+            <%= checkbox f, :agree, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none bg-slate-200 rounded w-max block mr-4" %>
+            <%# label f, :agree, "Согласие на обработку персональных данных", class: "block md:text-lg lg:text-xl font-semibold" %>
+            <%= link "Согласие на обработку персональных данных", 
+              to: Routes.policy_path(MkWeb.Endpoint, :policy), 
+              target: "_blank", 
+              class: "block md:text-lg lg:text-xl font-semibold underline text-slate-500 hover:text-blue-500" %>
+          </div>
+          <%= error_tag f, :agree, "text-xl my-2" %>
+        </div>        
+        <div>
+          <%= submit "Оставить заявку", phx_disable_with: "Отправка...", class: "text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100"%>
+        </div>
+      </.form>
+    </div>    
+  <% end %>
+</div>

@@ -34,7 +34,11 @@ defmodule Mk.ImagesTest do
 
     test "update_image/2 with valid data updates the image" do
       image = image_fixture()
-      update_attrs = %{image_path: "some updated image_path", product_id: "some updated product_id"}
+
+      update_attrs = %{
+        image_path: "some updated image_path",
+        product_id: "some updated product_id"
+      }
 
       assert {:ok, %Image{} = image} = Images.update_image(image, update_attrs)
       assert image.image_path == "some updated image_path"

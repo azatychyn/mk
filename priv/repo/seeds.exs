@@ -103,15 +103,3 @@
   }
 ]
 |> Enum.each(&Mk.Categories.create_category(&1))
-
-#TODO clean this
-# images = [
-#   "images/categories/warehouse.jpeg"
-#   "images/categories/sport.jpeg"
-#   "images/categories/logistic.jpeg"
-#   "images/categories/greenhouse.jpeg"
-#   "images/categories/awnings.jpeg"
-#   "images/categories/aviation.jpeg"
-#   "images/categories/auto_service.jpeg"
-#   "images/categories/agriculture.jpeg"
-# ]

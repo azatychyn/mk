@@ -25,9 +25,32 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
+import IMask from 'imask';
+
+const Hooks = {}
+
+Hooks.PhoneNumber = {
+  phoneMask() {
+    return (
+      IMask(this.el, {
+        mask: '+{7}(000) 000-00-00',
+        lazy: false,  // make placeholder always visible
+      })
+    )
+  },
+  mounted() {
+    this.phoneMask().updateValue()
+  },
+  updated() {
+    this.phoneMask().updateValue()
+  },
+  destroyed() {
+    this.phoneMask().destroy()
+  }
+};
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})

@@ -27,5 +27,7 @@ defmodule Mk.Categories.Category do
   end
 
   defp maybe_put_assoc_image(changeset, nil), do: changeset
-  defp maybe_put_assoc_image(changeset, _image), do: cast_assoc(changeset, :image, with: &Image.changeset/2)
+
+  defp maybe_put_assoc_image(changeset, _image),
+    do: cast_assoc(changeset, :image, with: &Image.changeset/2)
 end

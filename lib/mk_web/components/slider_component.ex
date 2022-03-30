@@ -70,6 +70,7 @@ defmodule MkWeb.SliderComponent do
 
   def handle_event("prev", _, socket) do
     index = socket.assigns.index
+
     if index < 1 do
       {:noreply, update(socket, :index, &(&1 - 1))}
     else
@@ -80,6 +81,7 @@ defmodule MkWeb.SliderComponent do
   def handle_event("next", _, socket) do
     index = socket.assigns.index
     max_index = Enum.count(socket.assigns.images)
+
     if index >= max_index do
       {:noreply, assign(socket, :index, 1)}
     else
@@ -87,13 +89,13 @@ defmodule MkWeb.SliderComponent do
     end
   end
 
-	def image(images, index, folder) do
+  def image(images, index, folder) do
     images
-		|> Enum.at( index - 1)
+    |> Enum.at(index - 1)
     |> image_name(folder)
-	end
+  end
 
-	def image_name(image_name, folder) do
-		"/images/#{folder}/#{image_name}"
-	end
+  def image_name(image_name, folder) do
+    "/images/#{folder}/#{image_name}"
+  end
 end

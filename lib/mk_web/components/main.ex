@@ -178,7 +178,8 @@ defmodule MkWeb.Components.Main do
     <!-- mobile -->
     """
   end
-  defp extract_image(categories, label)  do
+
+  defp extract_image(categories, label) do
     categories
     |> Map.get(label)
     |> Map.get(:image)

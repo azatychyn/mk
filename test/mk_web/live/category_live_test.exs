@@ -4,8 +4,16 @@ defmodule MkWeb.CategoryLiveTest do
   import Phoenix.LiveViewTest
   import Mk.CategoriesFixtures
 
-  @create_attrs %{description: "some description", name: "some name", peculiarity: "some peculiarity"}
-  @update_attrs %{description: "some updated description", name: "some updated name", peculiarity: "some updated peculiarity"}
+  @create_attrs %{
+    description: "some description",
+    name: "some name",
+    peculiarity: "some peculiarity"
+  }
+  @update_attrs %{
+    description: "some updated description",
+    name: "some updated name",
+    peculiarity: "some updated peculiarity"
+  }
   @invalid_attrs %{description: nil, name: nil, peculiarity: nil}
 
   defp create_category(_) do

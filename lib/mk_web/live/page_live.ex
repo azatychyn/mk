@@ -1,7 +1,8 @@
 defmodule MkWeb.PageLive do
   use MkWeb, :live_view
 
-  alias Mk.Categories
+  alias Mk.{Categories, Feedback}
+  alias Mk.Feedback.Message
   alias Phoenix.LiveView.JS
 
   @steps [
@@ -10,11 +11,12 @@ defmodule MkWeb.PageLive do
     %{label: "Контракт", content: "Заключим в любом удобном для Вас месте"},
     %{label: "Строительство", content: "С Вас только приемка оговоренных этапов работ"},
     %{label: "Подготовка", content: "Мы не привыкли оставлять после себя мусор"},
-    %{label: "Сдача", content: "Приемка всего объекта"},
+    %{label: "Сдача", content: "Приемка всего объекта"}
   ]
 
   @works [
-    %{folder: "house_1",
+    %{
+      folder: "house_1",
       description: "",
       name: "№ комнатная квартира в Роствое",
       images: [
@@ -25,7 +27,8 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_2",
+    %{
+      folder: "house_2",
       description: "",
       name: "",
       images: [
@@ -34,18 +37,20 @@ defmodule MkWeb.PageLive do
         "1.png"
       ]
     },
-    %{folder: "house_3",
+    %{
+      folder: "house_3",
       description: "",
       name: "",
       images: [
-      "5.png",
-      "4.jpg",
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
-    ]
+        "5.png",
+        "4.jpg",
+        "3.jpg",
+        "2.jpg",
+        "1.jpg"
+      ]
     },
-    %{folder: "house_4",
+    %{
+      folder: "house_4",
       description: "",
       name: "",
       images: [
@@ -56,20 +61,22 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_5",
+    %{
+      folder: "house_5",
       description: "",
       name: "",
       images: [
-      "7.jpg",
-      "6.jpg",
-      "5.jpg",
-      "4.jpg",
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
+        "7.jpg",
+        "6.jpg",
+        "5.jpg",
+        "4.jpg",
+        "3.jpg",
+        "2.jpg",
+        "1.jpg"
       ]
     },
-    %{folder: "house_6",
+    %{
+      folder: "house_6",
       description: "",
       name: "",
       images: [
@@ -81,7 +88,8 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_7",
+    %{
+      folder: "house_7",
       description: "",
       name: "",
       images: [
@@ -95,7 +103,8 @@ defmodule MkWeb.PageLive do
         "1.jpeg"
       ]
     },
-    %{folder: "house_8",
+    %{
+      folder: "house_8",
       description: "",
       name: "",
       images: [
@@ -108,7 +117,8 @@ defmodule MkWeb.PageLive do
         "1.png"
       ]
     },
-    %{folder: "house_9",
+    %{
+      folder: "house_9",
       description: "",
       name: "",
       images: [
@@ -120,7 +130,8 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_10",
+    %{
+      folder: "house_10",
       description: "",
       name: "",
       images: [
@@ -133,7 +144,8 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_11",
+    %{
+      folder: "house_11",
       description: "",
       name: "",
       images: [
@@ -148,7 +160,8 @@ defmodule MkWeb.PageLive do
         "1.jpg"
       ]
     },
-    %{folder: "house_12",
+    %{
+      folder: "house_12",
       description: "",
       name: "",
       images: [
@@ -169,15 +182,15 @@ defmodule MkWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    # changeset =
-    #   %Message{}
-    #   |> Feedback.change_message()
+    changeset = %Message{}
+    # |> Feedback.change_message()
     #   |> Map.put(:action, :validate)
 
     socket =
       socket
       # |> assign(:answers, %{})
-      # |> assign(:changeset, changeset)
+      |> assign(:message_title, "Оставить заявку")
+      |> assign(:message, changeset)
       |> assign(:steps, @steps)
       |> assign(:current_folder, nil)
       |> assign(:images, [])
@@ -185,7 +198,7 @@ defmodule MkWeb.PageLive do
       |> assign(:slide_description, "")
       |> assign(:categories, Categories.map_categories())
 
-      {:ok, socket}
+    {:ok, socket}
   end
 
   @impl true
@@ -198,9 +211,9 @@ defmodule MkWeb.PageLive do
     %{
       "sl_fol" => current_folder,
       "sl_img" => images,
-      "sl_name" =>  slide_name,
+      "sl_name" => slide_name,
       "sl_desc" => slide_description
-      } = params
+    } = params
 
     socket
     |> assign(:current_folder, current_folder)

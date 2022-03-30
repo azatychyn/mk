@@ -35,7 +35,6 @@
 </div>
 
 <MkWeb.Components.Main.advantages />
-
 <!-- start steps of work -->
 <section class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
   <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold">Этапы работ</h1>
@@ -58,17 +57,17 @@
     <li class="">
       <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-center pb-4">>15 лет</p>
       <hr class="text-stale-200">
-      <p class="text-xl pt-4 max-w-xs text-center">Наша компания существует на рынке</p>
+      <p class="text-xl pt-4 max-w-xs text-center mx-auto">Наша компания существует на рынке</p>
     </li>
     <li class="">
       <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-center pb-4">700 тонн/мес</p>
       <hr class="text-stale-200">
-      <p class="text-xl pt-4 max-w-xs text-center">Производственные мощности</p>
+      <p class="text-xl pt-4 max-w-xs text-center mx-auto">Производственные мощности</p>
     </li>
     <li class="">
       <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-center pb-4">6000 м^2</p>
       <hr class="text-stale-200">
-      <p class="text-xl pt-4 max-w-xs text-center">Территория собственного производства</p>
+      <p class="text-xl pt-4 max-w-xs text-center mx-auto">Территория собственного производства</p>
     </li>
   </ul>
   <ul class="w-full grid xs:grid-cols-2 gap-2 xs:gap-4 sm:gap-8 auto-rows-min">
@@ -98,3 +97,11 @@
   </ul>
 </section>
 <!-- end our works -->
+<.live_component
+  module={MkWeb.MessageLive.FormComponentForMainPage}
+  id={:new}
+  title={@message_title}
+  action={@live_action}
+  message={@message}
+  return_to={Routes.page_path(@socket, :index)}
+/>

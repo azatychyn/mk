@@ -27,10 +27,10 @@ defmodule MkWeb.Components.Header do
         </div>
         <ul class="flex-col items-center hidden lg:flex">
           <li class="text-gray-800 hover:text-blue-800 focus:text-blue-800">
-            <a aria-label="whatsup" title="What's App для связи" href="tel:+78632103776" class="font-semibold sm:text-xl">+7 (863) 210-37-76</a>
+            <a aria-label="whatsup" title="What's App для связи" href="tel:+79202979049" class="font-semibold sm:text-xl">+7 (920) 297-90-49</a>
           </li>
           <li class="text-gray-800 hover:text-blue-800 focus:text-gray-50">
-            <a aria-label="whatsup" title="What's App для связи" href="tel:+78632103776" class="font-semibold sm:text-xl">+7 (863) 210-37-76</a>
+            <a aria-label="whatsup" title="What's App для связи" href="tel:+79605722001" class="font-semibold sm:text-xl">+7 (960) 572-20-01</a>
           </li>
         </ul>
         <!-- Mobile menu -->

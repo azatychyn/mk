@@ -1,0 +1,54 @@
+<div class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">Все сообщения</h1>
+
+  <%= if @live_action in [:new, :edit] do %>
+    <.modal return_to={Routes.message_index_path(@socket, :index)}>
+      <.live_component
+        module={MkWeb.MessageLive.FormComponent}
+        id={@message.id || :new}
+        title={@page_title}
+        action={@live_action}
+        message={@message}
+        return_to={Routes.message_index_path(@socket, :index)}
+      />
+    </.modal>
+  <% end %>
+  <nav class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+    <div class="text-2xl w-max">
+      <%= live_redirect "Панель Администратора",
+        to: Routes.admin_page_path(MkWeb.Endpoint, :index),
+        method: :get,
+        class: "text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100 block text-center font-bold" %>      
+    </div>
+  </nav>
+  <table class="w-full">
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Имя</th>
+        <th>Почта</th>
+        <th>Дата создания</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="messages" class="text-center">
+      <%= for message <- @messages do %>
+        <tr id={"message-#{message.id}"} class="bg-slate-200">
+          <td class="p-2"><%= message.number %></td>
+          <td class="p-2"><%= message.name %></td>         
+          <td class="p-2"><%= message.email %></td>
+          <td class="p-2"><%= NaiveDateTime.to_string(message.inserted_at) %></td>
+        </tr>
+        <tr id={"message-action-#{message.id}"} class="bg-slate-200 mt-4 w-full">
+          <td class="px-2"> <%= live_redirect "Показать", to: Routes.message_show_path(@socket, :show, message) %> </td>
+          <td class="px-2"> <%= live_patch "Редактировать", to: Routes.message_index_path(@socket, :edit, message) %> </td>
+          <td class="px-2"> <%= link "Удалить", to: "#", phx_click: "delete", phx_value_id: message.id, data: [confirm: "Are you sure?"] %> </td>
+          <td/>
+        </tr>
+        <tr class="h-4"/>
+      <% end %>
+    </tbody>
+  </table>
+
+  <span><%= live_patch "New Message", to: Routes.message_index_path(@socket, :new) %></span>
+</div>

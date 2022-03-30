@@ -21,7 +21,11 @@ defmodule Mk.CategoriesTest do
     end
 
     test "create_category/1 with valid data creates a category" do
-      valid_attrs = %{description: "some description", name: "some name", peculiarity: "some peculiarity"}
+      valid_attrs = %{
+        description: "some description",
+        name: "some name",
+        peculiarity: "some peculiarity"
+      }
 
       assert {:ok, %Category{} = category} = Categories.create_category(valid_attrs)
       assert category.description == "some description"
@@ -35,7 +39,12 @@ defmodule Mk.CategoriesTest do
 
     test "update_category/2 with valid data updates the category" do
       category = category_fixture()
-      update_attrs = %{description: "some updated description", name: "some updated name", peculiarity: "some updated peculiarity"}
+
+      update_attrs = %{
+        description: "some updated description",
+        name: "some updated name",
+        peculiarity: "some updated peculiarity"
+      }
 
       assert {:ok, %Category{} = category} = Categories.update_category(category, update_attrs)
       assert category.description == "some updated description"
