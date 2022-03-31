@@ -25,14 +25,9 @@ defmodule MkWeb.Components.Header do
             <li><a href="/" aria-label="About us" title="About us" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Связаться с нами</a></li>
           </ul>
         </div>
-        <ul class="flex-col items-center hidden lg:flex">
-          <li class="text-gray-800 hover:text-blue-800 focus:text-blue-800">
-            <a aria-label="whatsup" title="What's App для связи" href="tel:+79202979049" class="font-semibold sm:text-xl">+7 (920) 297-90-49</a>
-          </li>
-          <li class="text-gray-800 hover:text-blue-800 focus:text-gray-50">
-            <a aria-label="whatsup" title="What's App для связи" href="tel:+79605722001" class="font-semibold sm:text-xl">+7 (960) 572-20-01</a>
-          </li>
-        </ul>
+        <p class="hidden lg:flex text-gray-800 hover:text-blue-800 focus:text-gray-50">
+          <a aria-label="whatsup" title="What's App для связи" href="tel:+79605722001" class="font-semibold sm:text-xl">+7 (960) 572-20-01</a>
+        </p>
         <!-- Mobile menu -->
         <div class="lg:hidden" phx-click={show_header()} phx-click-away={hide_modal()} phx-remove={hide_modal()}>
           <button aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded text-slate-200 focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50">
@@ -71,8 +66,7 @@ defmodule MkWeb.Components.Header do
                   <li><a href="/" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">О компании</a></li>
                   <li><a href="/" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Наши работы</a></li>
                   <li><a href="/" aria-label="About us" title="About us" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Связаться с нами</a></li>
-                  <li><a href="tel:+78632103776" aria-label="whatsup" title="What's App для связи" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">+7 (863) 210-37-76</a></li>
-                  <li><a href="tel:+78632103776" aria-label="whatsup" title="What's App для связи" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">+7 (863) 210-37-76</a></li>
+                  <li><a href="tel:+79605722001" aria-label="whatsup" title="What's App для связи" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">+7 (960) 572-20-01</a></li>
                 </ul>
               </nav>
             </div>

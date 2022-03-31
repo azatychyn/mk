@@ -135,8 +135,7 @@ defmodule MkWeb.Components.Main do
         </svg>
         <img
           class="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-          src="https://promstalzdanie.ru/images/news/zdanie-iz-ram-peremennogo-secheniya.jpg"
-          src="https://img.freepik.com/free-photo/3d-rendering-factory-ceiling-with-metal-beam_493806-7724.jpg"
+          src={Routes.static_path(MkWeb.Endpoint, "/images/main_img.jpeg")}
           alt=""
         />
       </div>
@@ -159,7 +158,7 @@ defmodule MkWeb.Components.Main do
       <div class="absolute inset-0 z-0">
         <img
           class="object-cover w-full h-full"
-          src="https://promstalzdanie.ru/images/news/zdanie-iz-ram-peremennogo-secheniya.jpg"
+          src={Routes.static_path(MkWeb.Endpoint, "/images/main_img.jpeg")}
           alt="main_image"
         />
       </div>
@@ -176,6 +175,136 @@ defmodule MkWeb.Components.Main do
 
     </div>
     <!-- mobile -->
+    """
+  end
+
+  def about_compamy(assigns) do
+    ~H"""
+    <section class="mt-12 sm:mt-16 md:mt-20 xl:mt-24 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+      <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold uppercase">о компании</h1>
+      <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl px-2 mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center">
+        Мы - это <strong>группа компаний "АРГО"</strong>. Мы надёжная и добросовестная торгово-производственная группа компаний , имеющая богатый опыт в строительстве, в сфере производства и в грузоперевозках.
+      </p>
+      <div class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <img
+          class="object-cover w-full h-full max-h-[720px]"
+          src={Routes.static_path(MkWeb.Endpoint, "/images/company_img.jpeg")}
+          alt="company_img"
+        />
+      </div>
+      <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Наши основные напрвления</h2>
+      <ul class="grid md:grid-cols-2 gap-4 sm:gap-12 text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <li class="p-4">
+          <h2 class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold uppercase mb-3">металлоконструкции</h2>
+          <p class="sm:text-lg lg:text-xl mb-4">Возведение зданий любой сложности на основе металлоконструкций</p>
+          <div class="">
+            <img
+              class="object-cover w-full h-full max-h-[280px] md:max-h-[400px]"
+              src={Routes.static_path(MkWeb.Endpoint, "/images/metal_construction.jpeg")}
+              alt="company_img"
+            />
+          </div>
+        </li>
+        <li class="p-4">
+          <h2 class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold uppercase mb-3">грузоперевозки</h2>
+          <p class="sm:text-lg lg:text-xl mb-4">Перевозка грузов (практически любой категории) и по всей России </p>
+          <div class="">
+            <img
+              class="object-cover w-full h-full max-h-[280px] md:max-h-[400px]"
+              src={Routes.static_path(MkWeb.Endpoint, "/images/car.jpeg")}
+              alt="company_img"
+            />
+          </div>
+        </li>
+      </ul>
+      <h3 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">
+        Подробнее о нас
+      </h3>
+      <ul class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <li class="text-lg sm:text-xl lg:text-2xl pb-2 sm:mb-4 px-2 sm:px-0">
+          В компании работают только высококлассные специалисты, прошедшие обучение и аттестацию. Мы считаем, что высокий профессионализм и опыт сотрудников прежде всего экономят время и средства покупателя.
+        </li>
+        <li class="text-lg sm:text-xl lg:text-2xl pb-2 sm:mb-4 px-2 sm:px-0">
+          Больше 10 лет мы занимаемся быстровозводимыми металлическими конструкциями. Мы накопили немалый опыт и обрели практические навыки строительства, которые помогут сохранить время и деньги наших клиентов.
+        </li>
+        <li class="text-lg sm:text-xl lg:text-2xl pb-2 sm:mb-4 px-2 sm:px-0">
+          Наша компания оказывает услуги по перевозке грузов автомобильным транспортом по России. В нашем автопарке есть различный транспорт подходящий для перевозки практически любого груза.
+        </li>
+      </ul>
+      <h3 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Контактная информация</h3>
+      <ul class="grid md:grid-cols-3 gap-4 md:gap-8 lg:gap-12 text-left md:text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 px-2">
+        <li class="pb-4">
+          <a aria-label="tel" title="Телефон для связи" href="tel:+79605722001">
+            <p class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3-xl font-semibold uppercase mb-3">Номер телефона</p>
+            <p class="sm:text-lg lg:text-xl">+7 (960) 572-20-01</p>
+          </a>
+        </li>
+        <li class="pb-4">
+          <a aria-label="email" title="Почта для связи" href="mailto:gagik.nazarian@yandex.ru?subject=Заказ">
+            <p class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3-xl font-semibold uppercase mb-3">Почта</p>
+            <p class="sm:text-lg lg:text-xl">gagik.nazarian@yandex.ru</p>
+          </a>
+        </li>
+        <li class="pb-4">
+          <a aria-label="adress" title="Адрес Компании">
+            <p class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3-xl font-semibold uppercase mb-3">Адрес</p>
+            <p class="sm:text-lg lg:text-xl">390047, Рязанская обл, Рязань г, Куйбышевское ш, дом 41, помещение Н1, офис 319</p>
+          </a>
+        </li>
+      </ul>
+      <p class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Реквизиты</p>
+      <ul class="grid xl:grid-cols-3 gap-4 sm:gap-12 text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <li class="block xl:hidden h-2 bg-slate-200" />
+        <li class="">
+          <p class="text-lg lg:text-xl xl:text-2xl font-bold px-2 mb-4 text-left">ООО  "СТК АРГО"</p>
+          <ul class="grid grid-cols-7 text-left text-lg sm:text-xl md:text-2xl">
+            <li class="p-1 col-span-2 font-semibold">ИНН:</li>
+            <li class="p-1 col-span-5">6230118008</li>
+            <li class="p-1 col-span-2 font-semibold">КПП:</li>
+            <li class="p-1 col-span-5">623001001</li>
+            <li class="p-1 col-span-2 font-semibold">ОГРН:</li>
+            <li class="p-1 col-span-5">1206200009487</li>
+            <li class="p-1 col-span-full font-semibold">Генеральный директор:</li>
+            <li class="px-1 col-span-full">Назарян Гагик Грачикович</li>
+            <li class="p-1 col-span-full font-semibold">Юридический адрес:</li>
+            <li class="px-1 col-span-full">390047, Рязанская обл, Рязань г, Куйбышевское ш, дом 41, помещение Н1, офис 319</li>
+          </ul>
+        </li>
+        <li class="block xl:hidden h-2 bg-slate-200" />
+        <li class="">
+          <p class="text-lg lg:text-xl xl:text-2xl font-bold px-2 mb-4 text-left">ООО  "АГРО-СТРОЙ"</p>
+          <ul class="grid grid-cols-7 text-left text-lg sm:text-xl md:text-2xl">
+            <li class="p-1 col-span-2 font-semibold">ИНН:</li>
+            <li class="p-1 col-span-5">6230096900</li>
+            <li class="p-1 col-span-2 font-semibold">КПП:</li>
+            <li class="p-1 col-span-5">623001001</li>
+            <li class="p-1 col-span-2 font-semibold">ОГРН:</li>
+            <li class="p-1 col-span-5">1166234059375</li>
+            <li class="p-1 col-span-full font-semibold">Генеральный директор:</li>
+            <li class="px-1 col-span-full">Назарян Гагик Грачикович</li>
+            <li class="p-1 col-span-full font-semibold">Юридический адрес:</li>
+            <li class="px-1 col-span-full">390047, Рязанская обл, Рязань г, Куйбышевское ш, дом 41, корпус Литера "А", помещение Н1, офис 210</li>
+          </ul>
+        </li>
+        <li class="block xl:hidden h-2 bg-slate-200" />
+        <li class="">
+          <p class="text-lg lg:text-xl xl:text-2xl font-bold px-2 mb-4 text-left">ООО  "АГРО-СТРОЙ H"</p>
+          <ul class="grid grid-cols-7 text-left text-lg sm:text-xl md:text-2xl">
+            <li class="p-1 col-span-2 font-semibold">ИНН:</li>
+            <li class="p-1 col-span-5">5249161421</li>
+            <li class="p-1 col-span-2 font-semibold">КПП:</li>
+            <li class="p-1 col-span-5">524901001</li>
+            <li class="p-1 col-span-2 font-semibold">ОГРН:</li>
+            <li class="p-1 col-span-5">-</li>
+            <li class="p-1 col-span-full font-semibold">Генеральный директор:</li>
+            <li class="px-1 col-span-full">Назарян Гагик Грачикович</li>
+            <li class="p-1 col-span-full font-semibold">Юридический адрес:</li>
+            <li class="px-1 col-span-full">606000, Нижегородская обл, г. Дзержинск, ул. Пирогова, д. 37Б, офис 1</li>
+          </ul>
+        </li>
+        <li class="block xl:hidden h-2 bg-slate-200" />
+      </ul>
+    </section>
     """
   end
 
