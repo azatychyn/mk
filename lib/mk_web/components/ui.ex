@@ -91,8 +91,8 @@ defmodule MkWeb.Components.UI do
             <li class="md:p-1 col-span-2 font-semibold">КПП:</li>
             <li class="md:p-1 col-span-5">623001001</li>
             <li class="md:p-1 col-span-2 font-semibold">ОГРН:</li>
-            <li class="md:p-1 pb-4 col-span-5">1206200009487</li>
-            <li class="md:p-1 col-span-full font-semibold">Генеральный директор:</li>
+            <li class="md:p-1 col-span-5">1206200009487</li>
+            <li class="md:p-1 md:pt-4 col-span-full font-semibold">Генеральный директор:</li>
             <li class="px-1 pb-4 col-span-full">Назарян Гагик Грачикович</li>
             <li class="p-1 col-span-full font-semibold">Юридический адрес:</li>
             <li class="px-1 col-span-full">390047, Рязанская обл, Рязань г, Куйбышевское ш, дом 41, помещение Н1, офис 319</li>
