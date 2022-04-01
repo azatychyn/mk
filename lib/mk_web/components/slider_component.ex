@@ -1,24 +1,8 @@
 defmodule MkWeb.SliderComponent do
   use MkWeb, :live_component
 
-  # @s3_url "https://rnd-stori-images.s3.us-west-000.backblazeb2.com"
-  # @s3_url "/images"
-  # @images [
-  #   "5.jpg",
-  #   "4.jpg",
-  #   "3.jpg",
-  #   "2.jpg",
-  #   "1.jpg"
-  # ]
-
   def mount(socket) do
-    socket =
-      socket
-      # |> assign(:folder, "house_3")
-      # |> assign(:images, @images)
-      |> assign(:index, 1)
-
-    {:ok, socket}
+    {:ok, assign(socket, :index, 1)}
   end
 
   def render(assigns) do
@@ -42,7 +26,7 @@ defmodule MkWeb.SliderComponent do
             >
               <%= MkWeb.IconView.render(MkWeb.IconView, "arrow-left.html") %>
             </button>
-            <img class="max-h-184" src={Routes.static_path(@socket, image(@images, @index, @folder))}>
+            <img class="max-h-184" src={Routes.static_path(@socket, image(@images, @index))}>
             <button
               phx-click="next"
               phx-target={@myself}
@@ -61,9 +45,6 @@ defmodule MkWeb.SliderComponent do
             <%= MkWeb.IconView.render(MkWeb.IconView, "arrow-right.html") %>
           </button>
         </div>
-        <p class="text-xl sm:text-2xl md:text-3xl text-white text-center my-8"><%= @name %></p>
-        <p class="text-sm sm:text-base text-white text-center px-4"><%= @description %>
-        </p>
       </div>
     """
   end
@@ -89,13 +70,12 @@ defmodule MkWeb.SliderComponent do
     end
   end
 
-  def image(images, index, folder) do
+  def image(images, index) do
     images
     |> Enum.at(index - 1)
-    |> image_name(folder)
+    |> image_name()
   end
 
-  def image_name(image_name, folder) do
-    "/images/#{folder}/#{image_name}"
-  end
+  def image_name(path),
+    do: path
 end

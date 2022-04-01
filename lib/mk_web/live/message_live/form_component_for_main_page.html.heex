@@ -48,10 +48,9 @@
         <div>
           <div class="flex mb-4 items-center">
             <%= checkbox f, :agree, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none bg-slate-200 rounded w-max block mr-4" %>
-            <%# label f, :agree, "Согласие на обработку персональных данных", class: "block md:text-lg lg:text-xl font-semibold" %>
-            <%= link "Согласие на обработку персональных данных", 
-              to: Routes.policy_path(MkWeb.Endpoint, :policy), 
-              target: "_blank", 
+            <%= link "Согласие на обработку персональных данных",
+              to: Routes.policy_path(MkWeb.Endpoint, :policy),
+              target: "_blank",
               class: "block md:text-lg lg:text-xl font-semibold underline text-slate-500 hover:text-blue-500" %>
           </div>
           <%= error_tag f, :agree, "text-xl my-2" %>

@@ -1,7 +1,7 @@
 defmodule MkWeb.PageLive do
   use MkWeb, :live_view
 
-  alias Mk.{Categories, Feedback}
+  alias Mk.Categories
   alias Mk.Feedback.Message
   alias Phoenix.LiveView.JS
 
@@ -14,223 +14,42 @@ defmodule MkWeb.PageLive do
     %{label: "Сдача", content: "Приемка всего объекта"}
   ]
 
-  @works [
-    %{
-      folder: "house_1",
-      description: "",
-      name: "№ комнатная квартира в Роствое",
-      images: [
-        "5.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_2",
-      description: "",
-      name: "",
-      images: [
-        "3.jpg",
-        "2.jpg",
-        "1.png"
-      ]
-    },
-    %{
-      folder: "house_3",
-      description: "",
-      name: "",
-      images: [
-        "5.png",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_4",
-      description: "",
-      name: "",
-      images: [
-        "5.jpg",
-        "4.jpeg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_5",
-      description: "",
-      name: "",
-      images: [
-        "7.jpg",
-        "6.jpg",
-        "5.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_6",
-      description: "",
-      name: "",
-      images: [
-        "6.jpg",
-        "5.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_7",
-      description: "",
-      name: "",
-      images: [
-        "8.jpeg",
-        "7.jpeg",
-        "4.jpeg",
-        "5.jpeg",
-        "6.jpeg",
-        "2.jpeg",
-        "3.jpeg",
-        "1.jpeg"
-      ]
-    },
-    %{
-      folder: "house_8",
-      description: "",
-      name: "",
-      images: [
-        "7.png",
-        "6.png",
-        "5.png",
-        "4.png",
-        "3.png",
-        "2.png",
-        "1.png"
-      ]
-    },
-    %{
-      folder: "house_9",
-      description: "",
-      name: "",
-      images: [
-        "6.jpg",
-        "5.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_10",
-      description: "",
-      name: "",
-      images: [
-        "7.jpg",
-        "6.jpg",
-        "5.jpg",
-        "3.jpg",
-        "4.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_11",
-      description: "",
-      name: "",
-      images: [
-        "9.jpg",
-        "8.jpg",
-        "7.jpg",
-        "6.jpg",
-        "5.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    },
-    %{
-      folder: "house_12",
-      description: "",
-      name: "",
-      images: [
-        "11.jpg",
-        "10.jpg",
-        "9.jpg",
-        "8.jpg",
-        "7.jpg",
-        "5.jpg",
-        "6.jpg",
-        "4.jpg",
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ]
-    }
-  ]
-
   @impl true
   def mount(_params, _session, socket) do
-    changeset = %Message{}
-    # |> Feedback.change_message()
-    #   |> Map.put(:action, :validate)
-
     socket =
       socket
-      # |> assign(:answers, %{})
       |> assign(:message_title, "Оставить заявку")
-      |> assign(:message, changeset)
+      |> assign(:message, %Message{})
       |> assign(:steps, @steps)
       |> assign(:current_folder, nil)
       |> assign(:images, [])
       |> assign(:slide_name, "")
-      |> assign(:slide_description, "")
       |> assign(:categories, Categories.map_categories())
 
     {:ok, socket}
   end
 
   @impl true
-  def handle_params(params, _url, socket) do
-    # IO.inspect(binding())
-    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
-  end
+  def handle_params(params, _url, socket),
+    do: {:noreply, apply_action(socket, socket.assigns.live_action, params)}
 
   def apply_action(socket, :slider, params) do
-    %{
-      "sl_fol" => current_folder,
-      "sl_img" => images,
-      "sl_name" => slide_name,
-      "sl_desc" => slide_description
-    } = params
+    %{"sl_img" => images, "name" => slide_name} = params
 
     socket
-    |> assign(:current_folder, current_folder)
     |> assign(:images, images)
     |> assign(:slide_name, slide_name)
-    |> assign(:slide_description, slide_description)
   end
 
   def apply_action(socket, _url, _params),
     do: socket
 
-  def works(), do: @works
+  defp get_first_img([%{image_path: image_path} | _rest]),
+    do: image_path
 
-  defp show_modal(id, js \\ %JS{}) do
-    js
-    |> JS.show(transition: "fade-out", to: "#" <> id)
-    |> JS.show(transition: "fade-out-scale", to: "#modal-content")
-    |> JS.add_class("overflow-hidden", to: "#body")
-  end
+  def get_img_paths(images),
+    do: Enum.map(images, &(&1.image_path))
+
+  defp lock_body(js \\ %JS{}),
+    do: JS.add_class(js, "overflow-hidden", to: "#body")
 end

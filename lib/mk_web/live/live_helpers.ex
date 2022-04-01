@@ -72,10 +72,10 @@ defmodule MkWeb.LiveHelpers do
             to: @return_to,
             id: "close",
             class: "phx-modal-close mr-8 text-6xl w-max ml-auto",
-            phx_click: hide_modal()
+            phx_click: hide_slider_modal()
           %>
         <% else %>
-         <a id="close" href="#" class="phx-modal-close mr-8 text-6xl w-max ml-auto" phx-click={hide_modal()}>✖</a>
+         <a id="close" href="#" class="phx-modal-close mr-8 text-6xl w-max ml-auto" phx-click={hide_slider_modal()}>✖</a>
         <% end %>
 
           <%= render_slot(@inner_block) %>
@@ -88,6 +88,12 @@ defmodule MkWeb.LiveHelpers do
     js
     |> JS.hide(to: "#modal", transition: "fade-out")
     |> JS.hide(to: "#modal-content", transition: "fade-out-scale")
+    |> JS.remove_class("overflow-hidden", to: "#body")
+  end
+
+  defp hide_slider_modal(js \\ %JS{}) do
+    js
+    |> JS.hide(to: "#slider_modal", transition: "fade-out")
     |> JS.remove_class("overflow-hidden", to: "#body")
   end
 end

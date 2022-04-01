@@ -7,6 +7,7 @@ defmodule Mk.Products do
   alias Mk.Repo
 
   alias Mk.Products.Product
+  alias Mk.Images.Image
 
   @doc """
   Returns the list of products.
@@ -18,7 +19,10 @@ defmodule Mk.Products do
 
   """
   def list_products do
-    Repo.all(Product)
+    Product
+    |> join(:left, [p], i in Image, on: i.product_id == p.id)
+    |> preload([p, i], images: i)
+    |> Repo.all()
   end
 
   @doc """
@@ -35,7 +39,12 @@ defmodule Mk.Products do
       ** (Ecto.NoResultsError)
 
   """
-  def get_product!(id), do: Repo.get!(Product, id)
+  def get_product!(id) do
+    Product
+    |> join(:left, [p], i in Image, on: i.product_id == p.id)
+    |> preload([p, i], images: i)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a product.

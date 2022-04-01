@@ -67,57 +67,27 @@ defmodule MkWeb.Components.Main do
       </h1>
       <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 ">
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-              <%= MkWeb.IconView.render(MkWeb.IconView, "check_datalist.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Фиксированные цены</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Фиксированные цены</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Окончательная смета у вас на руках еще до начала работ, забудьте про неожиданные дополнительные работы и пересчеты. Это помогает заказчику распланировать бюджет.</p>
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-              <%= MkWeb.IconView.render(MkWeb.IconView, "pay_cash.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Поэтапная оплата</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Поэтапная оплата</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Расчет за каждый этап работ производится только после подписания актов выполненных работ и отсутствия замечаний со стороны заказчика. У нас сначала стулья, а затем деньги.</p>
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-              <%= MkWeb.IconView.render(MkWeb.IconView, "calendar.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Соблюдение сроков</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Соблюдение сроков</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Несем материальную ответственность за несоблюдение сроков, указанных в договоре. Время = деньги.</p>
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-            <%= MkWeb.IconView.render(MkWeb.IconView, "people_group.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Опытный коллектив</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Опытный коллектив</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Наш профессиональный и дружный коллектив сформировался еще более 10 лет назад. Всегда можете приехать к нам в офис и убедиться в этом сами.</p>
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-              <%= MkWeb.IconView.render(MkWeb.IconView, "wheel_barrow.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Закупка материала</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Закупка материала</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">У нас заключены договора поставки материалов по привлекательным цена у надежных поставщиков. Мы поможем сэкономить ваш бюджет.</p>
         </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 text-slate-500 flex-shrink-0">
-              <%= MkWeb.IconView.render(MkWeb.IconView, "quality.html") %>
-            </div>
-            <p class="text-gray-900 text-2xl title-font font-semibold text-xl">Гарантия 2 года</p>
-          </div>
+          <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Гарантия 2 года</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Мы всегда даем гарантию на весь спектр выполненных работ. Качество для нас превыше всего.</p>
         </li>
       </ul>
@@ -192,7 +162,7 @@ defmodule MkWeb.Components.Main do
           alt="company_img"
         />
       </div>
-      <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Наши основные напрвления</h2>
+      <h2 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Наши основные направления</h2>
       <ul class="grid md:grid-cols-2 gap-4 sm:gap-12 text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
         <li class="p-4">
           <h2 class="text-gray-900 text-xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold uppercase mb-3">металлоконструкции</h2>

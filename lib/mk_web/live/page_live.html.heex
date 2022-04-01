@@ -4,10 +4,8 @@
     module={MkWeb.SliderComponent}
     id="slider"
     return_to="/"
-    folder={@current_folder}
     images={@images}
     name={@slide_name}
-    description={@slide_description}
   />
 </.slider_modal>
 <% end %>
@@ -70,23 +68,21 @@
     </li>
   </ul>
   <ul class="w-full grid xs:grid-cols-2 gap-2 xs:gap-4 sm:gap-8 auto-rows-min">
-    <%= for {work, index} <- Enum.with_index(works(), 1) do %>
+    <%= for {product, index} <- Enum.with_index(Mk.Products.list_products(), 1) do %>
       <li class="group relative w-full h-40 xs:h-56 sm:h-96">
         <a class="w-full h-full flex items-center text-xl xs:text-2xl sm:text-3xl md:text-4xl">
           <div class="absolute inset-0 w-full h-full bg-black bg-opacity-30"></div>
-          <p class="absolute w-full h-full inset-0 flex items-center justify-center text-white text-center"> <%= work.name %></p>
-          <img class="block object-cover w-full h-full max-h-96" id={"Image#{index}_1"} src={Routes.static_path(@socket, "/images/#{work.folder}/#{List.first(work.images)}")} />
+          <p class="absolute w-full h-full inset-0 flex items-center justify-center text-white text-center"> <%# product.name %></p>
+          <img class="block object-cover w-full h-full max-h-96" id={"Image#{index}_1"} src={Routes.static_path(@socket, get_first_img(product.images))} />
         </a>
         <div class="absolute hidden inset-0 bg-black bg-opacity-70 pt-1 group-hover:flex items-center justify-center cursor-pointer  opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 ">
-          <p class=""></p>
 					<%= live_patch("Посмотреть Проект",
 								to:
 									Routes.page_path(@socket, :slider, [
-                    sl_fol: work.folder,
-                    sl_img: work.images,
-                    sl_name: work.name,
-                    sl_desc: work.description
+                    sl_img: get_img_paths(product.images),
+                    name: product.name
                   ]),
+                  "phx-click": lock_body(),
 									class: "text-xl text-center bg-white text-warm-gray-700 py-2 px-4 rounded-md"
 							) %>
 

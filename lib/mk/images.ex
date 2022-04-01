@@ -21,6 +21,28 @@ defmodule Mk.Images do
     Repo.all(Image)
   end
 
+  # def dos() do
+  #   a = "/Users/ter/projects/mk/priv/static/images/projects"
+  #   a
+  #   |> File.ls!()
+  #   |> Enum.filter(fn f -> f != ".DS_Store" end)
+  #   |> Enum.map(fn f ->
+  #     {:ok, array} = File.ls(Path.join(a, f)) |> IO.inspect()
+
+  #     {:ok, product} = Mk.Products.create_product(%{name: "name" <> f})
+
+  #     array
+  #     |> Enum.filter(fn f -> Regex.match?(~r/(.\.jpg|.\.jpeg)/, f) end)
+  #     |> Enum.map( fn filename ->
+  #       path =
+  #       "/images/projects"
+  #       |> Path.join(f)
+  #       |> Path.join(filename)
+  #       Mk.Images.create_image(%{image_path: path, product_id: product.id})
+  #     end)
+  #   end)
+  # end
+
   @doc """
   Gets a single image.
 
