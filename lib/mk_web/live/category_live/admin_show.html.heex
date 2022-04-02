@@ -1,0 +1,46 @@
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.category_admin_show_path(@socket, :show, @category)}>
+    <.live_component
+      module={MkWeb.CategoryLive.FormComponent}
+      id={@category.id}
+      title={@page_title}
+      action={@live_action}
+      category={@category}
+      return_to={Routes.category_admin_show_path(@socket, :show, @category)}
+    />
+  </.modal>
+<% end %>
+
+<section class="my-12 sm:my-16 md:my-20 lg:my-24">
+  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @page_title %></h1>
+  <nav class="grid grid-cols-2 gap-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-sm">
+    <%= live_redirect to: Routes.category_index_path(@socket, :index), method: :get, class: "text-2xl w-max" do %>
+      <div class="flex items-center">
+        <p class="block h-12 w-12"><%= MkWeb.IconView.render(MkWeb.IconView, "arrow-left.html") %></p>
+        <p>Назад</p>
+      </div>
+    <% end %>
+    <%= live_redirect "Редактировать", 
+          to: Routes.category_admin_show_path(@socket, :edit, @category), 
+          class: "flex items-center text-2xl w-max" %>
+  </nav>
+  <ul
+    class="grid sm:grid-cols-2 sm:gap-2 max-w-5xl px-2">
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Картинка</li>
+    <li class="block w-full h-64">
+      <img src={Routes.static_path(@socket, "/" <> @category.image.image_path)} class="object-cover h-full w-full"/>
+    </li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Имя:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @category.name %></li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Описание:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @category.description %></li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Особенности:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4">
+      <ul>
+        <%= for peculiarity_item <- @category.peculiarity do %>
+          <li class="py-4"><%= peculiarity_item %></li>
+        <% end %>        
+      </ul>
+    </li>    
+  </ul>
+</section>

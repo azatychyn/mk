@@ -40,7 +40,7 @@
           <td class="p-2"></td>
         </tr>
         <tr id={"category-action-#{category.id}"} class="bg-slate-200 mt-4">
-          <td class="font-bold text-xl"> <%= live_redirect "Показать", to: Routes.category_show_path(@socket, :show, category) %> </td>
+          <td class="font-bold text-xl"> <%= live_redirect "Показать", to: Routes.category_admin_show_path(@socket, :show, category) %> </td>
           <td class="font-bold text-xl"> <%= live_patch "Редактировать", to: Routes.category_index_path(@socket, :edit, category) %> </td>
           <td class="font-bold text-xl"> <%= link "Удалить", to: "#", phx_click: "delete", phx_value_id: category.id, data: [confirm: "Are you sure?"] %> </td>
           <td/>

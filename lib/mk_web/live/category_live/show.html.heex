@@ -10,13 +10,14 @@
     />
   </.modal>
 <% end %>
+
 <ul class="grid grid-cols-5 mt-12">
   <li class="col-span-3">
     <ul class="max-w-2xl">
-      <li class="first-line:text-7xl text-5xl mb-8 font-bold uppercase">
-        <%= @category.name %>
+      <li class="">
+        <h2 class="first-line:text-5xl text-3xl md:text-5xl md:first-line:text-6xl lg:first-line:text-7xl lg:text-6xl mb-8 font-bold title-font text-gray-900"> <%= @category.name %></h2>      
       </li>
-      <li class="text-xl mb-20">
+      <li class="text-xl mb-20 max-w-2xl">
         <ul>
         <%= for description_item <- @category.description do %>
           <li class="py-4"><%= description_item %></li>
@@ -24,20 +25,15 @@
         </ul>
       </li>
     </ul>
-    <p class="text-7xl font-semibold mb-8">ключевые особенности</p>
-    <div class="max-w-2xl text-xl"> 
-      <ul>
-      <%= for peculiarity_item <- @category.peculiarity do %>
-        <li class="py-4"><%= peculiarity_item %></li>
-      <% end %>        
-      </ul>
-    </div> 
   </li>
   <li class="col-span-2">
     <img src={Routes.static_path(@socket, "/" <> @category.image.image_path)}>
   </li>
 </ul>
-
-
-<span><%= live_patch "Edit", to: Routes.category_show_path(@socket, :edit, @category), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.category_index_path(@socket, :index) %></span>
+<p class="text-7xl font-semibold mb-8"></p>
+<h2 class="first-line:text-5xl text-3xl md:text-5xl md:first-line:text-6xl lg:first-line:text-7xl lg:text-5xl mb-8 font-bold title-font text-gray-900">ключевые особенности</h2>      
+<ul class="text-xl mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <%= for peculiarity_item <- @category.peculiarity do %>
+    <li class="py-4"><%= peculiarity_item %></li>
+  <% end %>        
+</ul>

@@ -98,8 +98,8 @@ defmodule MkWeb.Router do
       live("/categories/new", CategoryLive.Index, :new)
       live("/categories/:id/edit", CategoryLive.Index, :edit)
 
-      live("/categories/:id", CategoryLive.Show, :show)
-      live("/categories/:id/show/edit", CategoryLive.Show, :edit)
+      live("/admin/categories/:id", CategoryLive.AdminShow, :show)
+      live("/admin/categories/:id/show/edit", CategoryLive.AdminShow, :edit)
 
       live("/messages", MessageLive.Index, :index)
       live("/messages/new", MessageLive.Index, :new)
