@@ -797,6 +797,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 28rem;
 }
 
+.max-w-7xl {
+  max-width: 80rem;
+}
+
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -1154,6 +1158,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.5rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1251,6 +1260,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(253 164 175 / var(--tw-text-opacity));
 }
 
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
 .text-rose-400 {
   --tw-text-opacity: 1;
   color: rgb(251 113 133 / var(--tw-text-opacity));
@@ -1273,10 +1287,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .opacity-90 {
   opacity: 0.9;
-}
-
-.opacity-100 {
-  opacity: 1;
 }
 
 .opacity-0 {
@@ -1489,6 +1499,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-slate-100:hover {
   --tw-text-opacity: 1;
   color: rgb(241 245 249 / var(--tw-text-opacity));
+}
+
+.hover\:text-slate-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .hover\:text-rose-500:hover {

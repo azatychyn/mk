@@ -3,6 +3,7 @@ defmodule MkWeb.LiveHelpers do
   import Phoenix.LiveView.Helpers
 
   alias Phoenix.LiveView.JS
+  alias MkWeb.Router.Helpers, as: Routes
 
   @doc """
   Renders a live component inside a modal.
@@ -58,7 +59,7 @@ defmodule MkWeb.LiveHelpers do
     ~H"""
       <div
         id="slider_modal"
-        class="fixed min-w-screen h-full inset-0 overflow-auto z-50 bg-black bg-opacity-80"
+        class="fixed min-w-screen h-full inset-0 overflow-auto z-50 bg-black bg-opacity-80 flex items-center justify-center"
         phx-capture-click={JS.dispatch("click", to: "#close")}
         phx-click-away={JS.dispatch("click", to: "#close")}
         phx-window-keydown={JS.dispatch("click", to: "#close")}
@@ -66,18 +67,13 @@ defmodule MkWeb.LiveHelpers do
         phx-target="#slider_modal"
         phx-page-loading
         >
-        <div class="flex flex-col h-full opacity-100 scale-up-center">
-        <%= if @return_to do %>
+        <div class="flex flex-col items-center justify-center w-max max-w-7xl bg-opacity-70 scale-up-center mx-auto">
           <%= live_patch "✖",
-            to: @return_to,
+            to: @return_to || Routes.page_path(@socket, :index),
             id: "close",
-            class: "phx-modal-close mr-8 text-6xl w-max ml-auto",
+            class: "text-3xl sm:text-4xl lg:text-5xl w-max ml-auto text-slate-400 hover:text-slate-200",
             phx_click: hide_slider_modal()
           %>
-        <% else %>
-         <a id="close" href="#" class="phx-modal-close mr-8 text-6xl w-max ml-auto" phx-click={hide_slider_modal()}>✖</a>
-        <% end %>
-
           <%= render_slot(@inner_block) %>
         </div>
       </div>
