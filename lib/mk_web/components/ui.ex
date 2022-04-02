@@ -10,14 +10,14 @@ defmodule MkWeb.Components.UI do
     <div class="sticky top-0 z-20 bg-gradient-to-tl from-slate-300 to-slate-200 px-4 py-2 xs:py-4 sm:py-8 mx-auto md:px-4 lg:px-8">
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <a href="/" aria-label="Company" title="Company" class="inline-flex items-center mr-8">
+          <a href="/" aria-label="Company" title="Компания" class="inline-flex items-center mr-8">
             <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
               <rect x="3" y="1" width="7" height="12"></rect>
               <rect x="3" y="17" width="7" height="6"></rect>
               <rect x="14" y="1" width="7" height="6"></rect>
               <rect x="14" y="11" width="7" height="12"></rect>
             </svg>
-            <span class="ml-2 xs:text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+            <span class="ml-2 xs:text-xl font-bold tracking-wide text-gray-800 uppercase">cтк арго</span>
           </a>
           <ul class="items-center hidden space-x-8 lg:flex text-gray-800 tracking-wide font-medium">
             <li><a href="/" aria-label="Our product" title="Our product" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">О компании</a></li>
@@ -49,7 +49,7 @@ defmodule MkWeb.Components.UI do
                       <rect x="14" y="1" width="7" height="6"></rect>
                       <rect x="14" y="11" width="7" height="12"></rect>
                     </svg>
-                    <span class="ml-2 text-xl font-bold tracking-wide text-slate-200 uppercase">Company</span>
+                    <span class="ml-2 text-xl font-bold tracking-wide text-slate-200 uppercase">cтк арго</span>
                   </a>
                 </div>
                 <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-600 focus:bg-gray-600" phx-click={hide_header()}>
@@ -131,7 +131,7 @@ defmodule MkWeb.Components.UI do
           </ul>
         </li>
         <li class="col-span-full">
-          <p class="block md:text-lg lg:text-xl font-semibold underline text-slate-500 hover:text-blue-500 underline text-center">© Все права защищены 2022 Арго</p>
+          <p class="block md:text-lg lg:text-xl font-semibold underline text-slate-500 hover:text-blue-500 underline text-center">© Все права защищены 2022 ООО "СТК АРГО"</p>
           <%= link "Согласие на обработку персональных данных",
             to: Routes.policy_path(MkWeb.Endpoint, :policy),
             target: "_blank",

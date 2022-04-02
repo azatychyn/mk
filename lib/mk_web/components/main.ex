@@ -171,7 +171,7 @@ defmodule MkWeb.Components.Main do
             <img
               class="object-cover w-full h-full max-h-[280px] md:max-h-[400px]"
               src={Routes.static_path(MkWeb.Endpoint, "/images/metal_construction.jpeg")}
-              alt="company_img"
+              alt="metal_construction_img"
             />
           </div>
         </li>
@@ -182,7 +182,7 @@ defmodule MkWeb.Components.Main do
             <img
               class="object-cover w-full h-full max-h-[280px] md:max-h-[400px]"
               src={Routes.static_path(MkWeb.Endpoint, "/images/car.jpeg")}
-              alt="company_img"
+              alt="car_img"
             />
           </div>
         </li>
