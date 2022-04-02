@@ -144,7 +144,7 @@ defmodule MkWeb.Components.UI do
 
   def admin_panel(assigns) do
     ~H"""
-    <div class="flex w-max mt-2">
+    <div class="flex flex-col xs:flex-row w-max mt-2">
       <%= live_redirect "Панель Администратора",
         to: Routes.admin_page_path(MkWeb.Endpoint, :index),
         method: :get,

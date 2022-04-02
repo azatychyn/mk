@@ -23,6 +23,8 @@ defmodule Mk.Categories.Category do
     category
     |> cast(attrs, [:description, :name, :label, :peculiarity])
     |> validate_required([:description, :name, :label, :peculiarity])
+    |> validate_length(:description, min: 1, message: "Поля КАТЕГОРИИ не могут быть пустыми")
+    |> validate_length(:peculiarity, min: 1, message: "Поля ОСОБЕННОСТИ не могут быть пустыми")
     |> maybe_put_assoc_image(attrs[:image])
   end
 

@@ -1,28 +1,79 @@
-<div>
-  <h2><%= @title %></h2>
+<div class="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+  <h2 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @title %></h2>
 
   <.form
     let={f}
     for={@changeset}
-    id="category-form"
+    id="message-form"
     phx-target={@myself}
     phx-change="validate"
-    phx-submit="save">
-  
-    <%= label f, :description %>
-    <%= textarea f, :description %>
-    <%= error_tag f, :description %>
-  
-    <%= label f, :name %>
-    <%= text_input f, :name %>
-    <%= error_tag f, :name %>
-  
-    <%= label f, :peculiarity %>
-    <%= textarea f, :peculiarity %>
-    <%= error_tag f, :peculiarity %>
-  
+    phx-submit="save"
+    class="grid gap-8 max-w-2xl mx-auto px-2">
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= label f, :name, "Имя", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+      <%= text_input f, :name, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none w-full" %>
+      <%= error_tag f, :name, "text-xl my-2" %>
+    </div>
+    <div>
+      <%= label f, :label, "Лейбл", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+      <%= text_input f, :label, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none w-full" %>
+      <%= error_tag f, :label, "text-xl my-2" %>
+    </div>
+    <div>
+      <%= label f, :description, "Сообщения", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+      <%= for {description_item , i} <- Enum.with_index(Ecto.Changeset.fetch_field!(@changeset, :description)) do %>
+        <div class="flex relative mb-4">        
+          <%= textarea f, :description, name: "category[description][]", value: description_item, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none bg-slate-200 w-full rounded-l", rows: 3 %>
+         <div
+            class="text-xl md:text-2xl rounded-r lg:text-3xl p-2 text-rose-400 hover:text-rose-500 cursor-pointer bg-slate-200 block h-auto"
+            phx-click="remove_description"
+            phx-value-index={i}
+            phx-target={@myself}
+            >
+            ✖
+          </div>
+        </div>        
+      <% end %>
+      <%= error_tag f, :description, "text-xl my-2" %> 
+    </div>
+    <div
+      class="text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100 text-center"
+      phx-click="add_description"
+      phx-target={@myself}
+      >
+      Добавить категорию
+    </div>
+    <div>
+      <%= label f, :peculiarity, "Особенности", class: "block text-xl md:text-2xl lg:text-3xl font-semibold mb-4" %>
+      <%= for {peculiarity_item , i} <- Enum.with_index(Ecto.Changeset.fetch_field!(@changeset, :peculiarity)) do %>
+        <div class="flex relative mb-4">        
+          <%= textarea f, :peculiarity, name: "category[peculiarity][]", value: peculiarity_item, class: "text-2xl border-b-8 sm:border-b-[14px] lg:border-b-[16px] border-slate-200 outline-none bg-slate-200 w-full rounded-l", rows: 3 %>
+         <div
+            class="text-xl md:text-2xl rounded-r lg:text-3xl p-2 text-rose-400 hover:text-rose-500 cursor-pointer bg-slate-200 block h-auto"
+            phx-click="remove_peculiarity"
+            phx-value-index={i}
+            phx-target={@myself}
+            >
+            ✖
+          </div>
+        </div>
+      <% end %>
+      <%= error_tag f, :peculiarity, "text-xl my-2" %>
+    </div>
+    <div
+      class="text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100 text-center"
+      phx-click="add_peculiarity"
+      phx-target={@myself}
+      >
+      Добавить особенность
+    </div>
+
+    <div>
+      <%= if @changeset.valid? do %>
+        <%= submit "Сохранить", phx_disable_with: "Сохранение...", class: "text-xl md:text-2xl lg:text-3xl rounded p-4 bg-slate-200 w-full hover:bg-slate-500 hover:text-slate-100"%>
+      <% else %>
+        <%= submit "Сохранить", disabled: true, class: "text-xl md:text-2xl lg:text-3xl rounded p-4 w-full cursor-not-allowed bg-slate-500 bg-opacity-60"%>
+      <% end %>
     </div>
   </.form>
 </div>
