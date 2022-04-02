@@ -1,5 +1,3 @@
-<h1>Show Message</h1>
-
 <%= if @live_action in [:edit] do %>
   <.modal return_to={Routes.message_show_path(@socket, :show, @message)}>
     <.live_component
@@ -13,29 +11,28 @@
   </.modal>
 <% end %>
 
-<ul>
-
-  <li>
-    <strong>Message:</strong>
-    <%= @message.message %>
-  </li>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @message.name %>
-  </li>
-
-  <li>
-    <strong>Number:</strong>
-    <%= @message.number %>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <%= @message.email %>
-  </li>
-
-</ul>
-
-<span><%= live_patch "Edit", to: Routes.message_show_path(@socket, :edit, @message), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.message_index_path(@socket, :index) %></span>
+<div class="my-12 sm:my-16 md:my-20 lg:my-24">
+  <h2 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @page_title %></h2>
+  <nav class="grid grid-cols-2 gap-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-sm">
+    <%= live_redirect to: Routes.message_index_path(@socket, :index), method: :get, class: "text-2xl w-max" do %>
+      <div class="flex items-center">
+        <p class="block h-12 w-12"><%= MkWeb.IconView.render(MkWeb.IconView, "arrow-left.html") %></p>
+        <p>Назад</p>
+      </div>
+    <% end %>
+    <%= live_redirect "Редактировать", 
+          to: Routes.message_show_path(@socket, :edit, @message), 
+          class: "flex items-center text-2xl w-max" %>
+  </nav>
+  <ul
+    class="grid sm:grid-cols-2 sm:gap-2 max-w-5xl px-2">
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Имя:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @message.name %></li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Номер:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @message.number %></li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Почта:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @message.email %></li>
+    <li class="block font-bold text-xl md:text-2xl lg:text-3xl">Сообщение:</li>
+    <li class="block text-lg md:text-xl lg:text-2xl mb-4"><%= @message.message %></li>    
+  </ul>
+</div>

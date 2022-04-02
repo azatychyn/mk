@@ -15,7 +15,9 @@ rm -rf "_build"
 mix deps.get --only prod
 mix compile
 mix ecto.migrate
-mix run priv/repo/seeds.exs
+
+#to run seeds 
+# mix run priv/repo/seeds.exs
 # mix assets.deploy
 
 # create release

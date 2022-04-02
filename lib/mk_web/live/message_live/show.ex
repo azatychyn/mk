@@ -16,6 +16,6 @@ defmodule MkWeb.MessageLive.Show do
      |> assign(:message, Feedback.get_message!(id))}
   end
 
-  defp page_title(:show), do: "Show Message"
-  defp page_title(:edit), do: "Edit Message"
+  defp page_title(:show), do: "Cообщение"
+  defp page_title(:edit), do: "Редактировать сообщение"
 end

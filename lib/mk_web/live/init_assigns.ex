@@ -6,6 +6,23 @@ defmodule MkWeb.InitAssigns do
 
   alias Mk.Accounts
 
+  def on_mount(:default, _params, session, socket) do
+    user_token = get_user_token(session)
+
+    case user_token do
+      nil ->
+        {:cont, assign(socket, :current_user, nil)}
+
+      user_token ->
+        user =
+          socket
+          |> connected?()
+          |> get_user(user_token)
+
+      {:cont, assign(socket, :current_user, user)}
+    end
+  end
+
   def on_mount(:admin, _params, session, socket) do
     user_token = get_user_token(session)
 

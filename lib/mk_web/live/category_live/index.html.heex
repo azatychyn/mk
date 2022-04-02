@@ -1,43 +1,52 @@
-<h1>Listing Categories</h1>
+<div class="my-12 sm:my-16 md:my-20 lg:my-24">
+  <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"><%= @page_title %></h1>
 
-<%= if @live_action in [:new, :edit] do %>
-  <.modal return_to={Routes.category_index_path(@socket, :index)}>
-    <.live_component
-      module={MkWeb.CategoryLive.FormComponent}
-      id={@category.id || :new}
-      title={@page_title}
-      action={@live_action}
-      category={@category}
-      return_to={Routes.category_index_path(@socket, :index)}
-    />
-  </.modal>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Name</th>
-      <th>Peculiarity</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="categories">
-    <%= for category <- @categories do %>
-      <tr id={"category-#{category.id}"}>
-        <td><%= category.description %></td>
-        <td><%= category.name %></td>
-        <td><%= category.peculiarity %></td>
-
-        <td>
-          <span><%= live_redirect "Show", to: Routes.category_show_path(@socket, :show, category) %></span>
-          <span><%= live_patch "Edit", to: Routes.category_index_path(@socket, :edit, category) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: category.id, data: [confirm: "Are you sure?"] %></span>
-        </td>
-      </tr>
+  <%= if @live_action in [:new, :edit] do %>
+    <.modal return_to={Routes.category_index_path(@socket, :index)}>
+      <.live_component
+        module={MkWeb.CategoryLive.FormComponent}
+        id={@category.id || :new}
+        title={@page_title}
+        action={@live_action}
+        category={@category}
+        return_to={Routes.category_index_path(@socket, :index)}
+      />
+    </.modal>
+  <% end %>
+  <nav class="grid grid-cols-2 gap-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-sm">
+    <%= live_redirect to: Routes.admin_page_path(@socket, :index), method: :get, class: "text-2xl w-max" do %>
+      <div class="flex items-center">
+        <p class="block h-12 w-12"><%= MkWeb.IconView.render(MkWeb.IconView, "arrow-left.html") %></p>
+        <p>Назад</p>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<span><%= live_patch "New Category", to: Routes.category_index_path(@socket, :new) %></span>
+    <%= live_redirect "Создать категорию", 
+          to: Routes.category_index_path(@socket, :new),
+          class: "flex items-center text-2xl w-max" %>
+  </nav>  
+  <table class="max-w-4xl w-full">
+    <thead>
+      <tr>        
+        <th>Имя</th>
+        <th>Дата Создания</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="categories" class="text-center">
+      <%= for category <- @categories do %>
+        <tr id={"category-#{category.id}"} class="bg-slate-200">
+          <td class="p-2"><%= category.name %></td>
+          <td class="p-2"><%= NaiveDateTime.to_string(category.inserted_at) %></td>
+          <td class="p-2"></td>
+        </tr>
+        <tr id={"category-action-#{category.id}"} class="bg-slate-200 mt-4">
+          <td class="font-bold text-xl"> <%= live_redirect "Показать", to: Routes.category_show_path(@socket, :show, category) %> </td>
+          <td class="font-bold text-xl"> <%= live_patch "Редактировать", to: Routes.category_index_path(@socket, :edit, category) %> </td>
+          <td class="font-bold text-xl"> <%= link "Удалить", to: "#", phx_click: "delete", phx_value_id: category.id, data: [confirm: "Are you sure?"] %> </td>
+          <td/>
+        </tr>
+        <tr class="h-4"/>
+      <% end %>
+    </tbody>
+  </table>
+</div>

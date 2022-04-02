@@ -96,7 +96,7 @@ defmodule MkWeb.UserAuth do
 
   defp ensure_user_token(conn) do
     conn = fetch_cookies(conn, signed: [@remember_me_cookie])
-    conn.cookies[@remember_me_cookie]  |> IO.inspect(label: "some cokkies")
+
     if user_token = get_session(conn, :user_token) do
       {user_token, conn}
     else

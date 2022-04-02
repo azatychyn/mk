@@ -7,7 +7,7 @@ defmodule MkWeb.Components.UI do
 
   def header(assigns) do
     ~H"""
-    <div class="sticky top-0 z-20 bg-gradient-to-tl from-slate-300 to-slate-200 px-4 py-2 xs:py-4 sm:py-10 mx-auto md:px-24 lg:px-8">
+    <div class="sticky top-0 z-20 bg-gradient-to-tl from-slate-300 to-slate-200 px-4 py-2 xs:py-4 sm:py-8 mx-auto md:px-4 lg:px-8">
       <div class="flex items-center justify-between">
         <div class="flex items-center">
           <a href="/" aria-label="Company" title="Company" class="inline-flex items-center mr-8">
@@ -74,6 +74,9 @@ defmodule MkWeb.Components.UI do
           <!-- Mobile menu dropdown -->
         </div>
       </div>
+      <%= if @current_user do %>
+        <MkWeb.Components.UI.admin_panel assigns: @assigns />
+      <% end %>
     </div>
     """
   end
@@ -100,13 +103,13 @@ defmodule MkWeb.Components.UI do
         </li>
         <li class="">
           <p class="sm:text-lg md:text-xl lg:text-2xl font-bold text-left mb-4 uppercase">Контакты</p>
-          <ul class="grid text-left text-lg md:text-xl mb-6">
-            <li class="p-1 font-semibold">Телефон:</li>
-            <li class="p-1 break-words">
+          <ul class="grid text-left text-lg md:text-xl">
+            <li class="text-lg xl:text-xl font-bold text-left pb-4 uppercase">Телефон:</li>
+            <li class="p-1 pb-4 break-words">
               <a aria-label="whatsup" title="What's App для связи" href="tel:+79605722001">+7 (960) 572-20-01</a>
             </li>
-            <li class="p-1 font-semibold">Почта:</li>
-            <li class="p-1 break-words">
+            <li class="text-lg xl:text-xl font-bold text-left pb-4 uppercase">Почта:</li>
+            <li class="p-1 pb-4 break-words">
               <a aria-label="email" title="Почта для связи" href="mailto:gagik.nazarian@yandex.ru?subject=Заказ">gagik.nazarian@yandex.ru</a>
             </li>
 
@@ -136,6 +139,21 @@ defmodule MkWeb.Components.UI do
         </li>
       </ul>
     </section>
+    """
+  end
+
+  def admin_panel(assigns) do
+    ~H"""
+    <div class="flex w-max mt-2">
+      <%= live_redirect "Панель Администратора",
+        to: Routes.admin_page_path(MkWeb.Endpoint, :index),
+        method: :get,
+        class: "text-lg lg:text-xl hover:text-slate-600 font-bold mr-4" %>
+      <%= link "Выйти",
+        to: Routes.user_session_path(MkWeb.Endpoint, :delete),
+        method: :delete,
+        class: "text-lg lg:text-xl text-rose-300 hover:text-rose-400 font-bold" %>
+    </div>
     """
   end
 

@@ -74,21 +74,6 @@ defmodule MkWeb.Router do
     # get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
   end
 
-  scope "/", MkWeb do
-    pipe_through([:browser])
-
-    delete("/users/log_out", UserSessionController, :delete)
-    # get("/users/confirm", UserConfirmationController, :new)
-    # post("/users/confirm", UserConfirmationController, :create)
-    # get("/users/confirm/:token", UserConfirmationController, :edit)
-    # post("/users/confirm/:token", UserConfirmationController, :update)
-
-    live("/", PageLive, :index)
-    live("/slider", PageLive, :slider)
-    live("/policy", PolicyLive, :policy)
-    live("/categories/:id", CategoryLive.Show, :show)
-  end
-
   live_session :admin, on_mount: {MkWeb.InitAssigns, :admin} do
     scope "/", MkWeb do
       pipe_through([:browser, :require_authenticated_user])
@@ -122,12 +107,23 @@ defmodule MkWeb.Router do
 
       live("/messages/:id", MessageLive.Show, :show)
       live("/messages/:id/show/edit", MessageLive.Show, :edit)
+    end
+  end
 
-      live("/categories", CategoryLive.Index, :index)
-      live("/categories/new", CategoryLive.Index, :new)
-      live("/categories/:id/edit", CategoryLive.Index, :edit)
+  live_session :default, on_mount: {MkWeb.InitAssigns, :default} do
+    scope "/", MkWeb do
+      pipe_through([:browser])
 
-      live("/categories/:id/show/edit", CategoryLive.Show, :edit)
+      delete("/users/log_out", UserSessionController, :delete)
+      # get("/users/confirm", UserConfirmationController, :new)
+      # post("/users/confirm", UserConfirmationController, :create)
+      # get("/users/confirm/:token", UserConfirmationController, :edit)
+      # post("/users/confirm/:token", UserConfirmationController, :update)
+
+      live("/", PageLive, :index)
+      live("/slider", PageLive, :slider)
+      live("/policy", PolicyLive, :policy)
+      live("/categories/:id", CategoryLive.Show, :show)
     end
   end
 end
