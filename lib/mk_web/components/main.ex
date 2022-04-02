@@ -8,52 +8,52 @@ defmodule MkWeb.Components.Main do
     ~H"""
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-2 gap-4 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
       <li class="md:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["warehouse"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["warehouse"].id) do %>
           <img src={extract_image(@categories, "warehouse")} class="object-cover h-full w-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4" ><%= extract_name(@categories, "warehouse") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="md:row-span-2 bg-gray-400 h-52 sm:h-auto relative overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["greenhouse"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["greenhouse"].id) do %>
           <img src={extract_image(@categories, "greenhouse")} class="object-cover h-full w-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "greenhouse") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["agriculture"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["agriculture"].id) do %>
           <img src={extract_image(@categories, "agriculture")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "agriculture") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["logistic"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["logistic"].id) do %>
           <img src={extract_image(@categories, "logistic")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "logistic") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["auto_service"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["auto_service"].id) do %>
           <img src={extract_image(@categories, "auto_service")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "auto_service") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="lg:col-span-2 xl:col-span-1 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["sport"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["sport"].id) do %>
           <img src={extract_image(@categories, "sport")} class="object-cover w-full w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "sport") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="lg:col-span-3 xl:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["awnings"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["awnings"].id) do %>
           <img src={extract_image(@categories, "awnings")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "awnings") %></p>
-        </a>
+        <% end %>
       </li>
       <li class="lg:col-span-3 xl:col-span-2 bg-gray-400 relative h-52 md:h-60 lg:h-72 xl:h-96 overflow-hidden cursor-pointer">
-        <a href={Routes.category_show_path(MkWeb.Endpoint, :show, @categories["aviation"].id)}>
+        <%= live_redirect to: Routes.category_show_path(@socket, :show, @categories["aviation"].id) do %>
           <img src={extract_image(@categories, "aviation")} class="object-cover w-full h-full lg:hover:scale-125 transform-gpu transition"/>
           <p class="absolute bottom-0 bg-gray-800 w-full bg-opacity-60 text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl p-1 sm:p-2 md:p-3 lg:p-4"><%= extract_name(@categories, "aviation") %></p>
-        </a>
+        <% end %>
       </li>
     </ul>
     """

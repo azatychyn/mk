@@ -731,16 +731,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 10rem;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
 .h-64 {
   height: 16rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .max-h-\[720px\] {
@@ -757,10 +753,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-h-96 {
   max-height: 24rem;
-}
-
-.max-h-32 {
-  max-height: 8rem;
 }
 
 .w-full {
@@ -783,14 +775,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-}
-
-.w-32 {
-  width: 8rem;
-}
-
-.w-96 {
-  width: 24rem;
 }
 
 .max-w-xl {
@@ -823,10 +807,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[1536px\] {
   max-width: 1536px;
-}
-
-.max-w-7xl {
-  max-width: 80rem;
 }
 
 .-translate-x-1\/2 {
@@ -1156,11 +1136,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.5rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -1444,11 +1419,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .first-line\:text-4xl::first-line {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.first-line\:text-7xl::first-line {
-  font-size: 4.5rem;
-  line-height: 1;
 }
 
 .first-line\:text-5xl::first-line {
@@ -1986,11 +1956,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:text-6xl {
     font-size: 3.75rem;
-    line-height: 1;
-  }
-
-  .lg\:text-7xl {
-    font-size: 4.5rem;
     line-height: 1;
   }
 
