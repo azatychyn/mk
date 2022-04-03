@@ -3,11 +3,11 @@ defmodule MkWeb.PolicyLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    "https://skolkovo.ru/"
     socket =
       socket
       |> assign(:page_title, "Согласие на обработку персональных данных")
-      |> assign(:site, "https://skolkovo.ru/")
+      |> assign(:site, "https://ctk_argo.ru")
+      |> assign(:address, "ООО «СТК АРГО» (ОГРН 1206200009487, адрес: 390047, Рязанская обл, Рязань г, Куйбышевское ш, дом 41, помещение Н1, офис 319")
     {:ok, socket}
   end
 

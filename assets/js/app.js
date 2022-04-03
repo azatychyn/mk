@@ -26,7 +26,13 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 import IMask from 'imask';
+import SmoothScroll from "smooth-scroll"
 
+var linear = new SmoothScroll('[data-easing="linear"]', {
+  easing: 'linear',
+	speed: 300,
+  offset: 200
+});
 const Hooks = {}
 
 Hooks.PhoneNumber = {

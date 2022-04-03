@@ -10,6 +10,7 @@
     "deploy": "NODE_ENV=production npx tailwindcss --postcss --minify --input=css/app.css --output=../priv/static/assets/app.css"
   },
   "dependencies": {
-    "imask": "^6.4.2"
+    "imask": "^6.4.2",
+    "smooth-scroll": "^16.1.3"
   }
 }

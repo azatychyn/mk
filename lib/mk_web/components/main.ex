@@ -151,7 +151,7 @@ defmodule MkWeb.Components.Main do
   def about_compamy(assigns) do
     ~H"""
     <section class="mt-12 sm:mt-16 md:mt-20 xl:mt-24 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-      <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold uppercase">о компании</h1>
+      <h1 id="about_company" class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold uppercase">о компании</h1>
       <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl px-2 mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center">
         Мы - это <strong>группа компаний "АРГО"</strong>. Мы надёжная и добросовестная торгово-производственная группа компаний , имеющая богатый опыт в строительстве, в сфере производства и в грузоперевозках.
       </p>
@@ -201,7 +201,7 @@ defmodule MkWeb.Components.Main do
           Наша компания оказывает услуги по перевозке грузов автомобильным транспортом по России. В нашем автопарке есть различный транспорт подходящий для перевозки практически любого груза.
         </li>
       </ul>
-      <h3 class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Контактная информация</h3>
+      <h3 id="contact" class="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold px-2 mb-4 sm:mb-8 md:mb-12 lg:mb-16 text-center">Контактная информация</h3>
       <ul class="grid md:grid-cols-3 gap-4 md:gap-8 lg:gap-12 text-left md:text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 px-2">
         <li class="pb-4">
           <a aria-label="tel" title="Телефон для связи" href="tel:+79605722001">

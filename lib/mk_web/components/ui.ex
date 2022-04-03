@@ -10,7 +10,7 @@ defmodule MkWeb.Components.UI do
     <div class="sticky top-0 z-20 bg-gradient-to-tl from-slate-300 to-slate-200 px-4 py-2 xs:py-4 sm:py-8 mx-auto md:px-4 lg:px-8">
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <a href="/" aria-label="Company" title="Компания" class="inline-flex items-center mr-8">
+          <%= live_patch to: Routes.page_path(@socket, :index), "aria-label": "Company", title: "Компания", class: "inline-flex items-center mr-8" do %>
             <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
               <rect x="3" y="1" width="7" height="12"></rect>
               <rect x="3" y="17" width="7" height="6"></rect>
@@ -18,11 +18,11 @@ defmodule MkWeb.Components.UI do
               <rect x="14" y="11" width="7" height="12"></rect>
             </svg>
             <span class="ml-2 xs:text-xl font-bold tracking-wide text-gray-800 uppercase">cтк арго</span>
-          </a>
+          <% end %>
           <ul class="items-center hidden space-x-8 lg:flex text-gray-800 tracking-wide font-medium">
-            <li><a href="/" aria-label="Our product" title="Our product" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">О компании</a></li>
-            <li><a href="/" aria-label="Our product" title="Our product" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Наши работы</a></li>
-            <li><a href="/" aria-label="About us" title="About us" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Связаться с нами</a></li>
+            <li><a aria-label="About company" title="about_company" data-easing="linear" href="#about_company" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">О компании</a></li>
+            <li><a aria-label="Our product" title="Our product" data-easing="linear" href="#our_works" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Наши работы</a></li>
+            <li><a aria-label="Contact us" title="Contact us" data-easing="linear" href="#contact" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Связаться с нами</a></li>
           </ul>
         </div>
         <p class="hidden lg:flex text-gray-800 hover:text-blue-800 focus:text-gray-50">
@@ -42,7 +42,7 @@ defmodule MkWeb.Components.UI do
             <div class="p-5">
               <div class="flex items-center justify-between mb-4">
                 <div>
-                  <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+                  <%= live_patch to: Routes.page_path(@socket, :index), "aria-label": "Company", title: "Company", class: "inline-flex items-center" do %>
                     <svg class="w-8 text-slate-200" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
                       <rect x="3" y="1" width="7" height="12"></rect>
                       <rect x="3" y="17" width="7" height="6"></rect>
@@ -50,7 +50,7 @@ defmodule MkWeb.Components.UI do
                       <rect x="14" y="11" width="7" height="12"></rect>
                     </svg>
                     <span class="ml-2 text-xl font-bold tracking-wide text-slate-200 uppercase">cтк арго</span>
-                  </a>
+                  <% end %>
                 </div>
                 <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-600 focus:bg-gray-600" phx-click={hide_header()}>
                   <svg class="w-8 sm:w-10 text-slate-200" viewBox="0 0 24 24">
@@ -63,9 +63,9 @@ defmodule MkWeb.Components.UI do
               </div>
               <nav>
                 <ul class="space-y-4 ppercase underline">
-                  <li><a href="/" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">О компании</a></li>
-                  <li><a href="/" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Наши работы</a></li>
-                  <li><a href="/" aria-label="About us" title="About us" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Связаться с нами</a></li>
+                  <li><a phx-click={hide_header()} data-easing="linear" href="#about_company" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">О компании</a></li>
+                  <li><a phx-click={hide_header()} data-easing="linear" href="#our_works" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Наши работы</a></li>
+                  <li><a phx-click={hide_header()} data-easing="linear" href="#contact" aria-label="About us" title="About us" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Связаться с нами</a></li>
                   <li><a href="tel:+79605722001" aria-label="whatsup" title="What's App для связи" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">+7 (960) 572-20-01</a></li>
                 </ul>
               </nav>
@@ -117,16 +117,13 @@ defmodule MkWeb.Components.UI do
           <p class="sm:text-lg md:text-xl lg:text-2xl font-bold text-left mb-4 uppercase">Карта сайта</p>
           <ul class="grid text-left text-lg md:text-xl max-w-md">
             <li class="p-1">
-              <a>О нас</a>
+              <a data-easing="linear" href="#about_company">О нас</a>
             </li>
             <li class="p-1">
-              <a>Наши работы</a>
+              <a data-easing="linear" href="#our_works">Наши работы</a>
             </li>
             <li class="p-1">
-              <a>Связаться с нами</a>
-            </li>
-            <li class="p-1">
-              <a>Наши работы</a>
+              <a data-easing="linear" href="#contact">Связаться с нами</a>
             </li>
           </ul>
         </li>
