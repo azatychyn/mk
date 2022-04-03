@@ -83,7 +83,7 @@ defmodule MkWeb.Components.UI do
 
   def footer(assigns) do
     ~H"""
-    <section class="bg-gradient-to-tl from-slate-300 to-slate-200 px-2 xs:px-4 sm:py-10 mx-auto md:px-4 lg:px-8 md:py-24">
+    <section class="bg-gradient-to-tl from-slate-300 to-slate-200 px-2 xs:px-4 py-10 mx-auto md:px-4 lg:px-8 md:py-24">
       <ul class="grid md:grid-cols-2 gap-16 md:gap-y-32">
         <li class="">
           <p class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold text-left uppercase mb-4">адрес</p>
