@@ -1,5 +1,5 @@
 <main class="max-w-[1920px] mx-auto subpixel-antialiased">
-  <MkWeb.Components.UI.header current_user={@current_user} socket={@socket}/>
+  <MkWeb.Components.UI.header current_user={@current_user} socket={@socket} links={@links}/>
   <p class="alert alert-info" role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="info"><%= live_flash(@flash, :info) %></p>

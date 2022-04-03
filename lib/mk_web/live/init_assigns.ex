@@ -8,23 +8,25 @@ defmodule MkWeb.InitAssigns do
 
   def on_mount(:default, _params, session, socket) do
     user_token = get_user_token(session)
+    links = if socket.view == MkWeb.PageLive, do: true, else: false
 
     case user_token do
       nil ->
-        {:cont, assign(socket, :current_user, nil)}
+        socket =
+          socket
+          |> assign(:current_user, nil)
+          |> assign(:links, links)
+
+        {:cont, socket}
 
       user_token ->
-        user =
-          socket
-          |> connected?()
-          |> get_user(user_token)
-
-      {:cont, assign(socket, :current_user, user)}
+        {:cont, continue(socket, user_token, links)}
     end
   end
 
   def on_mount(:admin, _params, session, socket) do
     user_token = get_user_token(session)
+    links = if socket.view == MkWeb.PageLive, do: true, else: false
 
     case user_token do
       nil ->
@@ -36,13 +38,19 @@ defmodule MkWeb.InitAssigns do
         {:halt, socket}
 
       user_token ->
-        user =
-          socket
-          |> connected?()
-          |> get_user(user_token)
-
-        {:cont, assign(socket, :current_user, user)}
+        {:cont, continue(socket, user_token, links)}
     end
+  end
+
+  defp continue(socket, user_token, links) do
+    user =
+      socket
+      |> connected?()
+      |> get_user(user_token)
+
+    socket
+    |> assign(:current_user, user)
+    |> assign(:links, links)
   end
 
   defp get_user(true, token), do: Accounts.get_user_by_session_token(token)

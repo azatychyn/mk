@@ -20,9 +20,13 @@ defmodule MkWeb.Components.UI do
             <span class="ml-2 xs:text-xl font-bold tracking-wide text-gray-800 uppercase">cтк арго</span>
           <% end %>
           <ul class="items-center hidden space-x-8 lg:flex text-gray-800 tracking-wide font-medium">
-            <li><a aria-label="About company" title="about_company" data-easing="linear" href="#about_company" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">О компании</a></li>
-            <li><a aria-label="Our product" title="Our product" data-easing="linear" href="#our_works" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Наши работы</a></li>
-            <li><a aria-label="Contact us" title="Contact us" data-easing="linear" href="#contact" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Связаться с нами</a></li>
+            <%= if @links do %>
+              <li><a aria-label="About company" title="about_company" data-easing="linear" href="#about_company" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">О компании</a></li>
+              <li><a aria-label="Our product" title="Our product" data-easing="linear" href="#our_works" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Наши работы</a></li>
+              <li><a aria-label="Contact us" title="Contact us" data-easing="linear" href="#contact" class="hover:text-blue-800 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">Связаться с нами</a></li>
+            <% else %>
+              <li><%= live_patch "На главную", to: Routes.page_path(@socket, :index), "aria-label": "Company", title: "Компания", class: "inline-flex items-center mr-8" %></li>
+            <% end %>
           </ul>
         </div>
         <p class="hidden lg:flex text-gray-800 hover:text-blue-800 focus:text-gray-50">
@@ -63,9 +67,13 @@ defmodule MkWeb.Components.UI do
               </div>
               <nav>
                 <ul class="space-y-4 ppercase underline">
-                  <li><a phx-click={hide_header()} data-easing="linear" href="#about_company" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">О компании</a></li>
-                  <li><a phx-click={hide_header()} data-easing="linear" href="#our_works" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Наши работы</a></li>
-                  <li><a phx-click={hide_header()} data-easing="linear" href="#contact" aria-label="About us" title="About us" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Связаться с нами</a></li>
+                  <%= if @links do %>
+                    <li><a phx-click={hide_header()} data-easing="linear" href="#about_company" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">О компании</a></li>
+                    <li><a phx-click={hide_header()} data-easing="linear" href="#our_works" aria-label="Our product" title="Our product" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Наши работы</a></li>
+                    <li><a phx-click={hide_header()} data-easing="linear" href="#contact" aria-label="About us" title="About us" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">Связаться с нами</a></li>
+                  <% else %>
+                    <li><%= live_patch "На главную", to: Routes.page_path(@socket, :index), "aria-label": "Company", title: "Компания", class: "font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200" %></li>
+                  <% end %>
                   <li><a href="tel:+79605722001" aria-label="whatsup" title="What's App для связи" class="font-semibold text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-widest transition-colors duration-200">+7 (960) 572-20-01</a></li>
                 </ul>
               </nav>

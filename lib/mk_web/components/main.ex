@@ -109,7 +109,7 @@ defmodule MkWeb.Components.Main do
           alt=""
         />
       </div>
-      <div class="relative px-2 my-48">
+      <div class="relative px-2 my-32">
         <p class="text-7xl font-bold text-deep-purple-accent-400">Совершенно новый</p>
         <div class="max-w-xl pr-5">
           <p class="mb-5 text-gray-900 uppercase text-6xl">

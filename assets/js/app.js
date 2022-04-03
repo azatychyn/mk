@@ -30,7 +30,7 @@ import SmoothScroll from "smooth-scroll"
 
 var linear = new SmoothScroll('[data-easing="linear"]', {
   easing: 'linear',
-	speed: 300,
+	speed: 150,
   offset: 200
 });
 const Hooks = {}
