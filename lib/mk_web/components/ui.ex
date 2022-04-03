@@ -75,7 +75,7 @@ defmodule MkWeb.Components.UI do
         </div>
       </div>
       <%= if @current_user do %>
-        <MkWeb.Components.UI.admin_panel assigns: @assigns />
+        <MkWeb.Components.UI.admin_panel />
       <% end %>
     </div>
     """

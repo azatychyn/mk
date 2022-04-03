@@ -537,6 +537,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 50;
 }
 
+.order-last {
+  order: 9999;
+}
+
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -551,10 +555,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .col-span-3 {
   grid-column: span 3 / span 3;
-}
-
-.m-12 {
-  margin: 3rem;
 }
 
 .mx-auto {
@@ -763,6 +763,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-height: 24rem;
 }
 
+.max-h-64 {
+  max-height: 16rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -817,10 +821,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 56rem;
 }
 
-.max-w-\[1536px\] {
-  max-width: 1536px;
-}
-
 .max-w-\[1920px\] {
   max-width: 1920px;
 }
@@ -848,6 +848,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .list-disc {
   list-style-type: disc;
+}
+
+.grid-flow-row {
+  grid-auto-flow: row;
+}
+
+.grid-flow-row-dense {
+  grid-auto-flow: row dense;
+}
+
+.grid-flow-col-dense {
+  grid-auto-flow: column dense;
 }
 
 .auto-rows-min {
@@ -917,10 +929,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-y-32 {
-  row-gap: 8rem;
 }
 
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
@@ -1102,6 +1110,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1110,11 +1123,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 
 .pr-5 {
@@ -1736,11 +1744,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-bottom: 2rem;
   }
 
-  .sm\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1775,6 +1778,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 768px) {
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
   }
 
   .md\:row-span-2 {
@@ -1829,6 +1836,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .md\:place-items-stretch {
@@ -1919,12 +1930,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     position: absolute;
   }
 
+  .lg\:order-first {
+    order: -9999;
+  }
+
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
   }
 
   .lg\:my-20 {
@@ -1949,6 +1968,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: 5rem;
   }
 
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -1969,12 +1992,30 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 6rem;
   }
 
+  .lg\:h-auto {
+    height: auto;
+  }
+
+  .lg\:max-h-full {
+    max-height: 100%;
+  }
+
+  .lg\:max-h-fit {
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+
   .lg\:w-24 {
     width: 6rem;
   }
 
   .lg\:max-w-full {
     max-width: 100%;
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:gap-12 {
@@ -2057,12 +2098,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1280px) {
+  .xl\:order-first {
+    order: -9999;
+  }
+
   .xl\:col-span-1 {
     grid-column: span 1 / span 1;
   }
 
   .xl\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
   }
 
   .xl\:mt-24 {
@@ -2077,12 +2130,32 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 24rem;
   }
 
+  .xl\:h-auto {
+    height: auto;
+  }
+
+  .xl\:h-full {
+    height: 100%;
+  }
+
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .xl\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .xl\:px-0 {
