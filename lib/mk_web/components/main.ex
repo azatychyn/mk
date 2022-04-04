@@ -65,7 +65,15 @@ defmodule MkWeb.Components.Main do
       <h1 class="first-line:text-4xl text-2xl md:text-4xl md:first-line:text-5xl lg:first-line:text-6xl lg:text-5xl text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 font-bold title-font text-gray-900">
         Преимущество работать с нами
       </h1>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 ">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+        <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8 col-span-full">
+          <p class="first-line:text-3xl text-xl md:text-3xl md:first-line:text-4xl lg:first-line:text-5xl lg:text-4xl text-center font-bold text-gray-900 mb-4 uppercase">
+            Цены по рынку ниже на
+          </p>
+          <p class="text-yellow-400 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center font-bold text-gray-900">
+            15%
+          </p>
+        </li>
         <li class="rounded-lg h-full bg-gray-100 p-4 xs:p-8">
           <p class="mb-3 text-gray-900 text-2xl title-font font-semibold text-xl">Фиксированные цены</p>
           <p class="leading-relaxed text-xl text-warm-gray-500">Окончательная смета у вас на руках еще до начала работ, забудьте про неожиданные дополнительные работы и пересчеты. Это помогает заказчику распланировать бюджет.</p>
