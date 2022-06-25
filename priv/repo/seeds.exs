@@ -103,3 +103,5 @@
   }
 ]
 |> Enum.each(&Mk.Categories.create_category(&1))
+
+Mk.Accounts.register_user(%{email: "admin@admin.ru", password: "QWEasdzxc123"})
