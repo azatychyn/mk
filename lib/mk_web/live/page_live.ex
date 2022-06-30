@@ -48,7 +48,7 @@ defmodule MkWeb.PageLive do
     do: image_path
 
   def get_img_paths(images),
-    do: Enum.map(images, &(&1.image_path))
+    do: Enum.map(images, & &1.image_path)
 
   defp lock_body(js \\ %JS{}),
     do: JS.add_class(js, "overflow-hidden", to: "#body")

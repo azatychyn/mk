@@ -15,15 +15,13 @@ defmodule MkWeb.AdminPageLive do
   def handle_params(params, _url, socket) do
     # IO.inspect(binding())
 
-
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
   def apply_action(socket, :slider, params) do
-    %{ "sl_img" => images, "sl_name" => slide_name} = params
+    %{"sl_img" => images, "sl_name" => slide_name} = params
 
     socket
-
     |> assign(:images, images)
     |> assign(:slide_name, slide_name)
   end

@@ -14,7 +14,7 @@ defmodule MkWeb.MessageLive.FormComponentForMainPage do
       |> assign(:have_sent, false)
       |> assign(:changeset, changeset)
 
-     {:ok, socket}
+    {:ok, socket}
   end
 
   @impl true
@@ -42,6 +42,7 @@ defmodule MkWeb.MessageLive.FormComponentForMainPage do
 
   def handle_event("new", _params, socket) do
     changeset = Feedback.change_message(%Message{})
+
     socket =
       socket
       |> assign(:title, "Оставить заявку")
